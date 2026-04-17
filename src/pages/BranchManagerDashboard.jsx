@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useBookings, GLOBAL_ROOMS, TIME_SLOTS, isOutsideWorkingHours } from '../context/BookingContext';
-import { CheckCircle, XCircle, AlertTriangle, User, Calendar, Edit3, Save } from 'lucide-react';
+import { CheckCircle, XCircle, AlertTriangle, User, Calendar, Edit3, Save, ShieldAlert, Check } from 'lucide-react';
 
 const BranchManagerDashboard = () => {
   const { user } = useAuth();
@@ -30,7 +30,7 @@ const BranchManagerDashboard = () => {
     let finalTime = editing.time;
     if (timeMode === 'custom') {
        if (!isOutsideWorkingHours(customTime)) {
-         alert('Cannot override with this custom hour block! Modifying custom times is strictly reserved for OUTSIDE standard working hours only. Please select a time off-peak, or use the standard grid.');
+         alert('Cannot override with this custom hour block! Modifying custom times is strictly reserved for OUTSIDE standard working hours only.');
          return;
        }
        finalTime = customTime;
@@ -64,7 +64,7 @@ const BranchManagerDashboard = () => {
             {pendingRequests.map(b => (
               <div key={b.id} className="glass-panel" style={{ borderLeft: '4px solid var(--accent-color)', padding: '1rem' }}>
                 <h4 style={{ margin: '0 0 0.5rem 0' }}>{b.roomName}</h4>
-                <p style={{ fontSize: '0.9rem', margin: '0 0 0.25rem 0' }}><User size={14} className="inline-icon" /> {b.applicantName} ({b.applicantRole})</p>
+                <p style={{ fontSize: '0.9rem', margin: '0 0 0.25rem 0' }}><User size={14} className="inline-icon" /> {b.applicantName}</p>
                 <p style={{ fontSize: '0.9rem', margin: '0 0 0.25rem 0' }}><Calendar size={14} className="inline-icon" /> {b.date} at {b.time}</p>
                 <p style={{ fontSize: '0.9rem', margin: '0 0 1rem 0' }}><strong>Reason:</strong> {b.reason}</p>
                 <div style={{ display: 'flex', gap: '0.5rem' }}>
@@ -81,10 +81,7 @@ const BranchManagerDashboard = () => {
         <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
           <Edit3 size={20} /> Master Registry & Override Console
         </h3>
-        <p style={{ fontSize: '0.9rem', color: '#666', marginBottom: '1rem' }}>
-          Use the Master Console to view every active footprint in the building. You may directly overwrite booking parameters without permission if the University requires it.
-        </p>
-
+        
         {editing ? (
           <div className="glass-panel animate-fade-in" style={{ borderTop: '4px solid #ff9800', marginBottom: '2rem' }}>
             <h4 style={{ margin: '0 0 1rem 0' }}>Modifying Booking: {editing.id}</h4>
@@ -104,12 +101,8 @@ const BranchManagerDashboard = () => {
             <div style={{ marginBottom: '1rem' }}>
                <label className="form-label">Time Selection</label>
                <select className="form-control" value={timeMode === 'standard' ? editing.time : 'custom'} onChange={(e) => {
-                 if(e.target.value === 'custom') {
-                   setTimeMode('custom');
-                 } else {
-                   setTimeMode('standard');
-                   setEditing({...editing, time: e.target.value});
-                 }
+                 if(e.target.value === 'custom') setTimeMode('custom');
+                 else { setTimeMode('standard'); setEditing({...editing, time: e.target.value}); }
                }}>
                  {TIME_SLOTS.map(slot => <option key={slot} value={slot}>{slot}</option>)}
                  <option value="custom">[ Custom Time (Off-Hours) ]</option>
@@ -120,21 +113,11 @@ const BranchManagerDashboard = () => {
               <div className="form-group animate-fade-in" style={{ padding: '1rem', backgroundColor: '#f9f9f9', borderRadius: '4px', borderLeft: '3px solid #ff9800' }}>
                 <label className="form-label">Custom Off-Hours Time</label>
                 <input type="time" className="form-control" value={customTime} onChange={(e) => setCustomTime(e.target.value)} required />
-                {!isOutsideWorkingHours(customTime) && customTime && (
-                  <p style={{ color: '#cc0000', fontSize: '0.85rem', marginTop: '0.5rem', marginBottom: 0 }}>
-                     <strong>Restricted:</strong> Time ({customTime}) is during standard working hours. Please use the core grid above.
-                  </p>
-                )}
               </div>
             )}
 
             <div style={{ display: 'flex', gap: '0.5rem', marginTop: '1.5rem' }}>
-              <button 
-                className="btn btn-primary" 
-                onClick={handleSaveModification} 
-                style={{ flex: 1, opacity: (timeMode === 'custom' && !isOutsideWorkingHours(customTime)) ? 0.5 : 1 }} 
-                disabled={timeMode === 'custom' && !isOutsideWorkingHours(customTime)}
-              >
+              <button className="btn btn-primary" onClick={handleSaveModification} style={{ flex: 1, opacity: (timeMode === 'custom' && !isOutsideWorkingHours(customTime)) ? 0.5 : 1 }} disabled={timeMode === 'custom' && !isOutsideWorkingHours(customTime)}>
                 <Save size={16} /> Broadcast Changes
               </button>
               <button className="btn" onClick={() => setEditing(null)} style={{ flex: 1, backgroundColor: '#eee' }}>Cancel</button>
@@ -162,9 +145,7 @@ const BranchManagerDashboard = () => {
                     <td style={{ padding: '1rem' }}>{b.date} / {b.time}</td>
                     <td style={{ padding: '1rem' }}>
                       <span style={{ 
-                        padding: '0.25rem 0.5rem', 
-                        borderRadius: '4px', 
-                        fontSize: '0.8rem',
+                        padding: '0.25rem 0.5rem', borderRadius: '4px', fontSize: '0.8rem',
                         backgroundColor: b.status === 'approved' ? '#d4edda' : b.status === 'rejected' ? '#f8d7da' : '#fff3cd',
                         color: b.status === 'approved' ? '#155724' : b.status === 'rejected' ? '#721c24' : '#856404'
                       }}>

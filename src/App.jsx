@@ -7,12 +7,19 @@ import AdminDashboard from './pages/AdminDashboard';
 import BranchManagerDashboard from './pages/BranchManagerDashboard';
 import EmployeeDashboard from './pages/EmployeeDashboard';
 import SecretaryDashboard from './pages/SecretaryDashboard';
+import DelegationSettings from './pages/DelegationSettings';
 import Layout from './components/Layout';
 
 const RequireAuth = ({ children, allowedRoles }) => {
-  const { user } = useAuth();
+  const { user, getActiveDelegations } = useAuth();
   if (!user) return <Navigate to="/login" replace />;
-  if (allowedRoles && !allowedRoles.includes(user.role)) return <Navigate to="/" replace />;
+  
+  const activeDels = getActiveDelegations(user.id) || [];
+  const effectiveRoles = [user.role, ...activeDels.map(d => d.roleGranted)];
+
+  if (allowedRoles && !allowedRoles.some(r => effectiveRoles.includes(r))) {
+    return <Navigate to="/" replace />;
+  }
   return <Layout>{children}</Layout>;
 };
 
@@ -40,6 +47,8 @@ const App = () => {
       <Route path="/manager/*" element={<RequireAuth allowedRoles={['branch_manager']}><BranchManagerDashboard /></RequireAuth>} />
       <Route path="/employee/*" element={<RequireAuth allowedRoles={['employee']}><EmployeeDashboard /></RequireAuth>} />
       <Route path="/secretary/*" element={<RequireAuth allowedRoles={['secretary']}><SecretaryDashboard /></RequireAuth>} />
+      
+      <Route path="/delegations" element={<RequireAuth><DelegationSettings /></RequireAuth>} />
     </Routes>
   );
 };

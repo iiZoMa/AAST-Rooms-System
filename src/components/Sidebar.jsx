@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, Search, Calendar, Settings, Plus } from 'lucide-react';
+import { LayoutDashboard, Search, Calendar, Settings, Plus, ShieldAlert } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 const Sidebar = () => {
@@ -38,6 +38,10 @@ const Sidebar = () => {
         <NavLink to="/settings" className={({isActive}) => isActive ? 'nav-item active' : 'nav-item'}>
           <Settings size={20} />
           Settings
+        </NavLink>
+        <NavLink to="/delegations" className={({isActive}) => isActive ? 'nav-item active' : 'nav-item'}>
+          <ShieldAlert size={20} />
+          Authority & Delegations
         </NavLink>
       </nav>
 
