@@ -9,12 +9,19 @@ import EmployeeDashboard from './pages/EmployeeDashboard';
 import SecretaryDashboard from './pages/SecretaryDashboard';
 import FixedSchedulePage from './pages/FixedSchedulePage';
 import RoomsPage from './pages/RoomsPage';
+import DelegationSettings from './pages/DelegationSettings';
 import Layout from './components/Layout';
 
 const RequireAuth = ({ children, allowedRoles }) => {
-  const { user } = useAuth();
+  const { user, getActiveDelegations } = useAuth();
   if (!user) return <Navigate to="/login" replace />;
-  if (allowedRoles && !allowedRoles.includes(user.role)) return <Navigate to="/" replace />;
+  
+  const activeDels = getActiveDelegations(user.id) || [];
+  const effectiveRoles = [user.role, ...activeDels.map(d => d.roleGranted)];
+
+  if (allowedRoles && !allowedRoles.some(r => effectiveRoles.includes(r))) {
+    return <Navigate to="/" replace />;
+  }
   return <Layout>{children}</Layout>;
 };
 
@@ -45,6 +52,7 @@ const App = () => {
       
       <Route path="/rooms" element={<RequireAuth><RoomsPage /></RequireAuth>} />
       <Route path="/fixed-schedule" element={<RequireAuth><FixedSchedulePage /></RequireAuth>} />
+      <Route path="/delegations" element={<RequireAuth><DelegationSettings /></RequireAuth>} />
     </Routes>
   );
 };
