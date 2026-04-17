@@ -11,7 +11,7 @@ const EmployeeDashboard = () => {
   const [roomType, setRoomType] = useState('regular');
   const [roomName, setRoomName] = useState(GLOBAL_ROOMS.regular[0]);
   const [date, setDate] = useState('');
-  const [time, setTime] = useState(TIME_SLOTS[0]);
+  const [time, setTime] = useState(TIME_SLOTS[0]?.timeString || '');
   const [reason, setReason] = useState('');
 
   // Active Delegations and Substituted Bookings
@@ -54,7 +54,7 @@ const EmployeeDashboard = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const result = addBooking({ applicantId: user.id, applicantName: user.name, applicantRole: user.role, roomType, roomName, date, time, reason });
-    if (result.success) { alert(result.message); setRoomName(GLOBAL_ROOMS[roomType][0]); setDate(''); setTime(TIME_SLOTS[0]); setReason(''); } 
+    if (result.success) { alert(result.message); setRoomName(GLOBAL_ROOMS[roomType][0]); setDate(''); setTime(TIME_SLOTS[0]?.timeString || ''); setReason(''); } 
     else { alert(result.message); }
   };
 
@@ -70,7 +70,7 @@ const EmployeeDashboard = () => {
   };
 
   const startEdit = (booking) => {
-    const isStandard = TIME_SLOTS.includes(booking.time);
+    const isStandard = TIME_SLOTS.some(slot => slot.timeString === booking.time);
     setEditTimeMode(isStandard ? 'standard' : 'custom');
     if (!isStandard) setEditCustomTime(booking.time || '');
     setEditing({ ...booking });
@@ -135,7 +135,7 @@ const EmployeeDashboard = () => {
               <div style={{ flex: 1 }}>
                 <label className="form-label">Time Slot</label>
                 <select className="form-control" value={time} onChange={(e) => setTime(e.target.value)} required>
-                  {TIME_SLOTS.map(slot => <option key={slot} value={slot}>{slot}</option>)}
+                  {TIME_SLOTS.map(slot => <option key={slot.id} value={slot.timeString}>{slot.timeString}</option>)}
                 </select>
               </div>
             </div>
@@ -219,7 +219,7 @@ const EmployeeDashboard = () => {
                   <div><label className="form-label">Force Room Change</label><select className="form-control" value={editing.roomName} onChange={e => setEditing({...editing, roomName: e.target.value})}>{Object.values(GLOBAL_ROOMS).flat().map(r => <option key={r} value={r}>{r}</option>)}</select></div>
                   <div><label className="form-label">Force Date Change</label><input type="date" className="form-control" value={editing.date} onChange={e => setEditing({...editing, date: e.target.value})} /></div>
                 </div>
-                <div style={{ marginBottom: '1rem' }}><label className="form-label">Force Time Reallocation</label><select className="form-control" value={editTimeMode === 'standard' ? editing.time : 'custom'} onChange={(e) => { if(e.target.value === 'custom') setEditTimeMode('custom'); else { setEditTimeMode('standard'); setEditing({...editing, time: e.target.value}); } }}>{TIME_SLOTS.map(slot => <option key={slot} value={slot}>{slot}</option>)}<option value="custom">[ Custom Time (Off-Hours) ]</option></select></div>
+                <div style={{ marginBottom: '1rem' }}><label className="form-label">Force Time Reallocation</label><select className="form-control" value={editTimeMode === 'standard' ? editing.time : 'custom'} onChange={(e) => { if(e.target.value === 'custom') setEditTimeMode('custom'); else { setEditTimeMode('standard'); setEditing({...editing, time: e.target.value}); } }}>{TIME_SLOTS.map(slot => <option key={slot.id} value={slot.timeString}>{slot.timeString}</option>)}<option value="custom">[ Custom Time (Off-Hours) ]</option></select></div>
                 {editTimeMode === 'custom' && (<div className="form-group animate-fade-in" style={{ padding: '1rem', backgroundColor: '#f9f9f9', borderRadius: '4px', borderLeft: '3px solid #cc0000' }}><label className="form-label">Custom Off-Hours Time</label><input type="time" className="form-control" value={editCustomTime} onChange={(e) => setEditCustomTime(e.target.value)} required /></div>)}
                 <div style={{ display: 'flex', gap: '0.5rem', marginTop: '1.5rem' }}>
                   <button className="btn btn-primary" onClick={handleSaveModification} style={{ flex: 1, backgroundColor: '#cc0000', border: 'none', opacity: (editTimeMode === 'custom' && !isOutsideWorkingHours(editCustomTime)) ? 0.5 : 1 }} disabled={editTimeMode === 'custom' && !isOutsideWorkingHours(editCustomTime)}><Save size={16} /> Execute Global Overwrite</button>

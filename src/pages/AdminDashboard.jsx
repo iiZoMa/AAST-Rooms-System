@@ -54,7 +54,7 @@ const AdminDashboard = () => {
   };
 
   const startEdit = (booking) => {
-    const isStandard = TIME_SLOTS.includes(booking.time);
+    const isStandard = TIME_SLOTS.some(slot => slot.timeString === booking.time);
     setEditTimeMode(isStandard ? 'standard' : 'custom');
     if (!isStandard) setEditCustomTime(booking.time || '');
     setEditing({ ...booking });
@@ -212,7 +212,7 @@ const AdminDashboard = () => {
                  if(e.target.value === 'custom') setEditTimeMode('custom');
                  else { setEditTimeMode('standard'); setEditing({...editing, time: e.target.value}); }
                }}>
-                 {TIME_SLOTS.map(slot => <option key={slot} value={slot}>{slot}</option>)}
+                 {TIME_SLOTS.map(slot => <option key={slot.id} value={slot.timeString}>{slot.timeString}</option>)}
                  <option value="custom">[ Custom Time (Off-Hours) ]</option>
                </select>
             </div>
