@@ -22,6 +22,7 @@ const Login = () => {
 
   return (
     <div style={styles.container} className="animate-fade-in">
+      <div style={styles.overlay}></div>
       <div className="glass-panel" style={styles.card}>
         <div style={styles.header}>
           <div style={styles.logo}>AAST</div>
@@ -69,12 +70,14 @@ const Login = () => {
         </div>
 
         <div style={styles.hints}>
-          <p><strong>للتجربة:</strong></p>
-          <ul style={{ paddingRight: '20px' }}>
-            <li>Admin: ID 1 / Pass 123</li>
-            <li>Branch Manager: ID 2 / Pass 123</li>
-            <li>Employees: ID 3, 5, 6 / Pass 123</li>
-            <li>Secretary: ID 4 / Pass 123</li>
+          <p><strong>بيانات التجربة:</strong></p>
+          <ul style={{ paddingRight: '20px', listStyleType: 'none' }}>
+            <li>🔑 <strong>Admin:</strong> ID 1</li>
+            <li>👔 <strong>Manager:</strong> ID 2</li>
+            <li>🎓 <strong>Dean:</strong> ID 1003</li>
+            <li>📂 <strong>Secretary:</strong> ID 1002, 1005</li>
+            <li>👨‍🏫 <strong>Employee:</strong> ID 1001, 1004, 1006</li>
+            <li><small>كلمة المرور لجميع الحسابات: <strong>123</strong></small></li>
           </ul>
         </div>
       </div>
@@ -89,51 +92,72 @@ const styles = {
     alignItems: 'center',
     minHeight: '100vh',
     padding: '2rem',
-    background: 'linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%)',
+    background: 'url("https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2069") center/cover no-repeat',
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    zIndex: 1000,
+  },
+  overlay: {
     position: 'absolute',
     top: 0,
     left: 0,
-    width: '100%',
+    right: 0,
+    bottom: 0,
+    background: 'linear-gradient(135deg, rgba(2, 48, 71, 0.85) 0%, rgba(255, 183, 3, 0.2) 100%)',
+    zIndex: -1,
   },
   card: {
     width: '100%',
     maxWidth: '450px',
-    backgroundColor: 'rgba(255, 255, 255, 0.95)',
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+    backdropFilter: 'blur(10px)',
+    borderRadius: '24px',
+    padding: '2.5rem',
+    boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
+    border: '1px solid rgba(255, 255, 255, 0.3)',
   },
   header: {
     textAlign: 'center',
-    marginBottom: '2rem',
+    marginBottom: '2.5rem',
   },
   logo: {
     display: 'inline-block',
     backgroundColor: 'var(--primary-color)',
     color: 'var(--secondary-color)',
-    fontSize: '2rem',
-    fontWeight: 'bold',
-    padding: '0.5rem 1.5rem',
-    borderRadius: '12px',
-    marginBottom: '1rem',
+    fontSize: '2.2rem',
+    fontWeight: '900',
+    padding: '0.6rem 2rem',
+    borderRadius: '16px',
+    marginBottom: '1.2rem',
+    boxShadow: '0 8px 16px rgba(0,0,0,0.1)',
   },
   subtitle: {
-    color: '#666',
-    marginTop: '-0.5rem',
+    color: '#444',
+    fontSize: '1.1rem',
+    fontWeight: '500',
   },
   error: {
-    backgroundColor: 'var(--danger)',
-    color: 'white',
-    padding: '0.75rem',
-    borderRadius: '8px',
-    marginBottom: '1rem',
+    backgroundColor: '#fee2e2',
+    color: '#b91c1c',
+    padding: '0.8rem',
+    borderRadius: '12px',
+    marginBottom: '1.5rem',
     textAlign: 'center',
-    fontWeight: 'bold',
+    fontSize: '0.9rem',
+    fontWeight: '600',
+    border: '1px solid #fecaca',
   },
   hints: {
-    marginTop: '2rem',
-    padding: '1rem',
-    backgroundColor: '#f8f9fa',
-    borderRadius: '8px',
-    fontSize: '0.9rem',
-    color: '#555'
+    marginTop: '2.5rem',
+    padding: '1.2rem',
+    backgroundColor: 'rgba(243, 244, 246, 0.8)',
+    borderRadius: '16px',
+    fontSize: '0.85rem',
+    color: '#4b5563',
+    border: '1px solid #e5e7eb',
   }
 };
 

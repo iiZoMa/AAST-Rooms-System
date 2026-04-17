@@ -7,6 +7,9 @@ import AdminDashboard from './pages/AdminDashboard';
 import BranchManagerDashboard from './pages/BranchManagerDashboard';
 import EmployeeDashboard from './pages/EmployeeDashboard';
 import SecretaryDashboard from './pages/SecretaryDashboard';
+import DeanDashboard from './pages/DeanDashboard';
+import MultipurposeRequest from './pages/MultipurposeRequest';
+import MyBookings from './pages/MyBookings';
 import FixedSchedulePage from './pages/FixedSchedulePage';
 import RoomsPage from './pages/RoomsPage';
 import Layout from './components/Layout';
@@ -27,6 +30,7 @@ const RoleBasedRedirect = () => {
     case 'branch_manager': return <Navigate to="/manager" replace />;
     case 'employee': return <Navigate to="/employee" replace />;
     case 'secretary': return <Navigate to="/secretary" replace />;
+    case 'dean': return <Navigate to="/dean" replace />;
     default: return <Navigate to="/login" replace />;
   }
 };
@@ -42,9 +46,12 @@ const App = () => {
       <Route path="/manager/*" element={<RequireAuth allowedRoles={['branch_manager']}><BranchManagerDashboard /></RequireAuth>} />
       <Route path="/employee/*" element={<RequireAuth allowedRoles={['employee']}><EmployeeDashboard /></RequireAuth>} />
       <Route path="/secretary/*" element={<RequireAuth allowedRoles={['secretary']}><SecretaryDashboard /></RequireAuth>} />
+      <Route path="/dean/*" element={<RequireAuth allowedRoles={['dean']}><DeanDashboard /></RequireAuth>} />
       
       <Route path="/rooms" element={<RequireAuth><RoomsPage /></RequireAuth>} />
+      <Route path="/my-bookings" element={<RequireAuth><MyBookings /></RequireAuth>} />
       <Route path="/fixed-schedule" element={<RequireAuth><FixedSchedulePage /></RequireAuth>} />
+      <Route path="/multipurpose-request" element={<RequireAuth><MultipurposeRequest /></RequireAuth>} />
     </Routes>
   );
 };
