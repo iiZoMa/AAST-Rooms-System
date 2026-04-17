@@ -14,7 +14,7 @@ export const BookingProvider = ({ children }) => {
     {
       id: 1,
       applicantId: '3',
-      applicantName: 'Employee',
+      applicantName: 'Dr. Sarah (Employee)',
       applicantRole: 'employee',
       roomType: 'multipurpose',
       roomName: 'Main Event Hall',
@@ -29,7 +29,6 @@ export const BookingProvider = ({ children }) => {
 
   const [notifications, setNotifications] = useState([]);
 
-<<<<<<< HEAD
   const addNotification = (message) => {
     setNotifications([{ id: Date.now(), message, date: new Date().toLocaleString() }, ...notifications]);
   };
@@ -43,10 +42,7 @@ export const BookingProvider = ({ children }) => {
     );
   };
 
-=======
->>>>>>> origin/master
   const addBooking = (booking) => {
-    // If user tries to submit an overlapping time for an actively secured room
     if (checkOverlap(booking.roomName, booking.date, booking.time)) {
       return { success: false, message: 'This room is already actively booked or pending finalization for this exact time and date!' };
     }
@@ -54,23 +50,17 @@ export const BookingProvider = ({ children }) => {
     const newBooking = {
       ...booking,
       id: Date.now(),
-<<<<<<< HEAD
       status: booking.applicantRole === 'admin' ? 'pending_manager' : 'pending_admin',
       rejectionReason: '',
       suggestedAlternative: ''
-=======
-      status: booking.roomType === 'regular' ? 'approved' : 'pending_dean'
->>>>>>> origin/master
     };
     setBookings([newBooking, ...bookings]);
     return { success: true, message: 'Request submitted successfully!' };
   };
 
-<<<<<<< HEAD
   const updateBookingStatus = (id, newStatus, rejectionReason = '', suggestedAlternative = '') => {
     const booking = bookings.find(b => b.id === id);
     
-    // Safety lock: if Admin tries to approve a request but someone else already secured it
     if ((newStatus === 'approved' || newStatus === 'pending_manager') && checkOverlap(booking.roomName, booking.date, booking.time)) {
       return { success: false, message: 'Overlap Detected! Another booking currently occupies this room at this specific time. Please reject this request.' };
     }
@@ -80,7 +70,6 @@ export const BookingProvider = ({ children }) => {
   };
 
   const forceModifyBooking = (bookingId, updatedFields, modifierName) => {
-    // Note: Force modify is an override, so Branch Manager is trusted here, but an overlap check is still good.
     if (checkOverlap(updatedFields.roomName || '', updatedFields.date || '', updatedFields.time || '')) {
        return { success: false, message: 'Cannot modify. That exact slot is already occupied.' };
     }
@@ -101,31 +90,6 @@ export const BookingProvider = ({ children }) => {
 
   return (
     <BookingContext.Provider value={{ bookings, notifications, addBooking, updateBookingStatus, forceModifyBooking, cancelBooking }}>
-=======
-  const addNotification = (role, message) => {
-    setNotifications(prev => [{ id: Date.now() + Math.random(), role, message, read: false }, ...prev]);
-  };
-
-  const markNotificationAsRead = (id) => {
-    setNotifications(prev => prev.map(n => n.id === id ? { ...n, read: true } : n));
-  };
-
-  const clearAllNotifications = (role) => {
-    setNotifications(prev => prev.filter(n => n.role !== role));
-  };
-
-  const updateBookingStatus = (id, newStatus) => {
-    setBookings(bookings.map(b => b.id === id ? { ...b, status: newStatus } : b));
-    
-    if (newStatus === 'pending_faisal') {
-      const roomBooking = bookings.find(b => b.id === id);
-      addNotification('faisal', `تم تحويل طلب القاعة (${roomBooking?.roomName}) من السيد العميد أكرم وبانتظار اعتمادك النهائي.`);
-    }
-  };
-
-  return (
-    <BookingContext.Provider value={{ bookings, addBooking, updateBookingStatus, notifications, addNotification, markNotificationAsRead, clearAllNotifications }}>
->>>>>>> origin/master
       {children}
     </BookingContext.Provider>
   );
