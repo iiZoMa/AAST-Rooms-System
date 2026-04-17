@@ -36,7 +36,7 @@ const Login = () => {
             <input 
               type="text" 
               className="form-control" 
-              placeholder="مثال: 1001، 1002، 1003"
+              placeholder="مثال: 1, 2, 3, 4"
               value={id}
               onChange={(e) => setId(e.target.value)}
               required
@@ -63,9 +63,10 @@ const Login = () => {
         <div style={styles.hints}>
           <p><strong>للتجربة:</strong></p>
           <ul style={{ paddingRight: '20px' }}>
-            <li>هيئة التدريس: ID 1001 / Pass 123</li>
-            <li>العميد أكرم: ID 1002 / Pass 123</li>
-            <li>الدكتور فيصل: ID 1003 / Pass 123</li>
+            <li>Admin: ID 1 / Pass 123</li>
+            <li>Branch Manager: ID 2 / Pass 123</li>
+            <li>Employees: ID 3, 5, 6 / Pass 123</li>
+            <li>Secretary: ID 4 / Pass 123</li>
           </ul>
         </div>
       </div>

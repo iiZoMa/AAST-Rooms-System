@@ -7,11 +7,14 @@ export const useAuth = () => useContext(AuthContext);
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
-  // Mock users
+  // Mock users for the new tier structure
   const users = {
-    '1001': { id: '1001', name: 'Dr. Ahmed (Staff)', role: 'staff', password: '123' },
-    '1002': { id: '1002', name: 'Dean Akram', role: 'dean', password: '123' },
-    '1003': { id: '1003', name: 'Dr. Faisal', role: 'faisal', password: '123' },
+    '1': { id: '1', name: 'System Admin', role: 'admin', password: '123' },
+    '2': { id: '2', name: 'Branch Manager', role: 'branch_manager', password: '123' },
+    '3': { id: '3', name: 'Dr. Sarah (Employee)', role: 'employee', password: '123' },
+    '4': { id: '4', name: 'College Secretary', role: 'secretary', password: '123' },
+    '5': { id: '5', name: 'Prof. John (Employee 2)', role: 'employee', password: '123' },
+    '6': { id: '6', name: 'Dr. Mona (Employee 3)', role: 'employee', password: '123' },
   };
 
   const login = (id, password) => {
