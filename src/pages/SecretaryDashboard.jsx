@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { useBookings, GLOBAL_ROOMS } from '../context/BookingContext';
+import { useBookings, GLOBAL_ROOMS, TIME_SLOTS } from '../context/BookingContext';
 import { Calendar, CheckCircle, XCircle, Clock3, AlertCircle, Trash2 } from 'lucide-react';
 
 const SecretaryDashboard = () => {
@@ -10,16 +10,18 @@ const SecretaryDashboard = () => {
   // Secretary is locked to multipurpose rooms only.
   const [roomName, setRoomName] = useState(GLOBAL_ROOMS.multipurpose[0]);
   const [date, setDate] = useState('');
-  const [time, setTime] = useState('');
+  const [time, setTime] = useState(TIME_SLOTS[0]);
   const [reason, setReason] = useState('');
   
   const myBookings = bookings.filter(b => b.applicantId === user.id);
 
   const getMinDate = () => {
-    const today = new Date();
-    today.setDate(today.getDate() + 2); // 48 hours in advance
-    return today.toISOString().split('T')[0];
+    const minimum = new Date();
+    minimum.setDate(minimum.getDate() + 2); // 48 hours in advance
+    return minimum.toISOString().split('T')[0];
   };
+
+  const isInvalidDate = date && date < getMinDate();
 
   const isBooked = bookings.some(b => 
     b.roomName === roomName && 
@@ -45,7 +47,7 @@ const SecretaryDashboard = () => {
       alert(result.message);
       setRoomName(GLOBAL_ROOMS.multipurpose[0]);
       setDate('');
-      setTime('');
+      setTime(TIME_SLOTS[0]);
       setReason('');
     } else {
       alert(result.message);
@@ -89,8 +91,10 @@ const SecretaryDashboard = () => {
                 <input type="date" className="form-control" min={getMinDate()} value={date} onChange={(e) => setDate(e.target.value)} required />
               </div>
               <div style={{ flex: 1 }}>
-                <label className="form-label">Time</label>
-                <input type="time" className="form-control" value={time} onChange={(e) => setTime(e.target.value)} required />
+                <label className="form-label">Time Slot</label>
+                <select className="form-control" value={time} onChange={(e) => setTime(e.target.value)} required>
+                  {TIME_SLOTS.map(slot => <option key={slot} value={slot}>{slot}</option>)}
+                </select>
               </div>
             </div>
 
@@ -99,14 +103,20 @@ const SecretaryDashboard = () => {
               <textarea className="form-control" rows="2" value={reason} onChange={(e) => setReason(e.target.value)} required></textarea>
             </div>
 
+            {isInvalidDate && date && (
+              <div style={{ backgroundColor: '#fff3cd', color: '#856404', padding: '0.75rem', borderRadius: '4px', marginBottom: '1rem', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                 <AlertCircle size={16} /> <strong>Notice:</strong> All multipurpose requests must be submitted at least 48 hours in advance.
+              </div>
+            )}
+
             {isBooked && (
               <div style={{ backgroundColor: '#f8d7da', color: '#721c24', padding: '0.75rem', borderRadius: '4px', marginBottom: '1rem', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <AlertCircle size={16} /> <strong>Warning:</strong> This room is already booked at this specific date and time!
               </div>
             )}
 
-            <button type="submit" className="btn btn-primary" style={{ width: '100%', opacity: isBooked ? 0.5 : 1 }} disabled={isBooked || !date || !time}>
-              {isBooked ? 'Unavailable' : 'Submit Booking'}
+            <button type="submit" className="btn btn-primary" style={{ width: '100%', opacity: (isBooked || isInvalidDate) ? 0.5 : 1 }} disabled={isBooked || isInvalidDate || !date || !time}>
+              {isBooked ? 'Unavailable' : isInvalidDate ? 'Cannot book yet' : 'Submit Booking'}
             </button>
           </form>
         </div>
