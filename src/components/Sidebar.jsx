@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { LayoutDashboard, Search, Calendar, Settings, Plus } from 'lucide-react';
+import { LayoutDashboard, Search, Calendar, Settings, Plus, ShieldAlert } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 const Sidebar = () => {
@@ -26,7 +26,12 @@ const Sidebar = () => {
         </div>
       </div>
 
-      <div style={{ flex: 1 }}></div>
+      <nav style={{ padding: '1.5rem 1rem', display: 'flex', flexDirection: 'column', gap: '0.5rem', flex: 1 }}>
+        <NavLink to="/delegations" className={({isActive}) => isActive ? 'nav-item active' : 'nav-item'}>
+          <ShieldAlert size={20} />
+          Authority & Delegations
+        </NavLink>
+      </nav>
 
       <div style={{ padding: '1.5rem' }}>
         <Link to="/multipurpose-request" style={{ textDecoration: 'none' }}>
