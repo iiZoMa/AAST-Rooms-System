@@ -4,11 +4,12 @@ import { useBookings, GLOBAL_ROOMS } from '../context/BookingContext';
 import { Check, X, Clock3, MapPin, User, FileText, Calendar, Bell, Building, Plus } from 'lucide-react';
 
 const AdminDashboard = () => {
-  const { user } = useAuth();
-  const { bookings, addBooking, updateBookingStatus, notifications } = useBookings();
+  const { user, users, approveUser, rejectUser } = useAuth();
+  const { bookings, addBooking, updateBookingStatus, notifications, addNotification } = useBookings();
 
   const pendingRequests = bookings.filter(b => b.status === 'pending_admin');
   const activeBookings = bookings.filter(b => b.status === 'approved' || b.status === 'pending_manager');
+  const pendingUsers = Object.values(users || {}).filter(u => u.status === 'pending');
 
   const allRooms = [...GLOBAL_ROOMS.regular, ...GLOBAL_ROOMS.multipurpose];
 
@@ -67,6 +68,14 @@ const AdminDashboard = () => {
       alert('Request sent directly to Branch Manager.');
     } else {
       alert(result.message);
+    }
+  };
+
+  const handleApproveUser = (userId) => {
+    approveUser(userId);
+    const u = users[userId];
+    if (addNotification && u) {
+      addNotification(`Admin approved a new account for employee: ${u.name}`);
     }
   };
 
@@ -135,10 +144,28 @@ const AdminDashboard = () => {
         <p style={{ color: '#666' }}>System overview, approvals, and status tracking.</p>
       </div>
 
+      {pendingUsers.length > 0 && (
+        <div style={{ marginBottom: '2rem' }}>
+          <h3 style={{ marginBottom: '1rem', color: 'var(--primary-color)' }}>Pending Account Approvals</h3>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1rem' }}>
+            {pendingUsers.map(u => (
+              <div key={u.id} className="glass-panel" style={{ borderLeft: '4px solid var(--primary-color)' }}>
+                <h4 style={{ margin: '0 0 0.5rem 0' }}>{u.name}</h4>
+                <p style={{ margin: '0 0 1rem 0', fontSize: '0.9rem', color: '#666' }}>Role: {u.role} | ID: {u.id}</p>
+                <div style={{ display: 'flex', gap: '0.5rem' }}>
+                  <button className="btn btn-success" onClick={() => handleApproveUser(u.id)} style={{ flex: 1 }}><Check size={16} /> Approve</button>
+                  <button className="btn btn-danger" onClick={() => rejectUser(u.id)} style={{ flex: 1 }}><X size={16} /> Reject</button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
       {notifications.length > 0 && (
         <div style={{ backgroundColor: '#fff3cd', borderLeft: '4px solid #ffecb5', padding: '1rem', marginBottom: '2rem', borderRadius: '4px' }}>
           <h4 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', margin: '0 0 0.5rem 0', color: '#856404' }}>
-            <Bell size={18} /> Notifications from Branch Manager
+            <Bell size={18} /> Notifications
           </h4>
           <ul style={{ margin: 0, paddingLeft: '1.5rem', color: '#856404' }}>
             {notifications.map(n => <li key={n.id}>[{n.date}] {n.message}</li>)}

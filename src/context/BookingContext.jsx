@@ -89,7 +89,7 @@ export const BookingProvider = ({ children }) => {
   };
 
   return (
-    <BookingContext.Provider value={{ bookings, notifications, addBooking, updateBookingStatus, forceModifyBooking, cancelBooking }}>
+    <BookingContext.Provider value={{ bookings, notifications, addBooking, updateBookingStatus, forceModifyBooking, cancelBooking, addNotification }}>
       {children}
     </BookingContext.Provider>
   );

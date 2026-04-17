@@ -7,13 +7,13 @@ import AdminDashboard from './pages/AdminDashboard';
 import BranchManagerDashboard from './pages/BranchManagerDashboard';
 import EmployeeDashboard from './pages/EmployeeDashboard';
 import SecretaryDashboard from './pages/SecretaryDashboard';
-import Navbar from './components/Navbar';
+import Layout from './components/Layout';
 
 const RequireAuth = ({ children, allowedRoles }) => {
   const { user } = useAuth();
   if (!user) return <Navigate to="/login" replace />;
   if (allowedRoles && !allowedRoles.includes(user.role)) return <Navigate to="/" replace />;
-  return children;
+  return <Layout>{children}</Layout>;
 };
 
 const RoleBasedRedirect = () => {
@@ -30,24 +30,17 @@ const RoleBasedRedirect = () => {
 };
 
 const App = () => {
-  const { user } = useAuth();
-
   return (
-    <>
-      {user && <Navbar />}
-      <div className="container" style={{ paddingTop: user ? '80px' : '0' }}>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/" element={<RoleBasedRedirect />} />
-          
-          <Route path="/admin/*" element={<RequireAuth allowedRoles={['admin']}><AdminDashboard /></RequireAuth>} />
-          <Route path="/manager/*" element={<RequireAuth allowedRoles={['branch_manager']}><BranchManagerDashboard /></RequireAuth>} />
-          <Route path="/employee/*" element={<RequireAuth allowedRoles={['employee']}><EmployeeDashboard /></RequireAuth>} />
-          <Route path="/secretary/*" element={<RequireAuth allowedRoles={['secretary']}><SecretaryDashboard /></RequireAuth>} />
-        </Routes>
-      </div>
-    </>
+    <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/" element={<RoleBasedRedirect />} />
+      
+      <Route path="/admin/*" element={<RequireAuth allowedRoles={['admin']}><AdminDashboard /></RequireAuth>} />
+      <Route path="/manager/*" element={<RequireAuth allowedRoles={['branch_manager']}><BranchManagerDashboard /></RequireAuth>} />
+      <Route path="/employee/*" element={<RequireAuth allowedRoles={['employee']}><EmployeeDashboard /></RequireAuth>} />
+      <Route path="/secretary/*" element={<RequireAuth allowedRoles={['secretary']}><SecretaryDashboard /></RequireAuth>} />
+    </Routes>
   );
 };
 

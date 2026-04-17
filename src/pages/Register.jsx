@@ -29,7 +29,7 @@ const Register = () => {
         <div className="glass-panel" style={styles.card}>
           <div style={{ textAlign: 'center' }}>
             <h2 style={{ color: 'var(--success)', marginBottom: '1rem' }}>Registration Successful!</h2>
-            <p>Your user profile has been created.</p>
+            <p>Your user profile has been created and is pending Admin approval.</p>
             <Link to="/login" className="btn btn-primary" style={{ display: 'inline-block', marginTop: '1.5rem' }}>
               العودة لتسجيل الدخول
             </Link>
