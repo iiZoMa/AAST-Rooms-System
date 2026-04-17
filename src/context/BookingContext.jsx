@@ -6,9 +6,13 @@ const BookingContext = createContext();
 
 export const useBookings = () => useContext(BookingContext);
 
+const allFixedRooms = Array.from(new Set(scheduleData.fixedSchedule.map(s => s.roomName)));
+const A_ROOMS = allFixedRooms.filter(r => r && r.startsWith('A-')).sort();
+const B_LABS = allFixedRooms.filter(r => r && r.startsWith('B-')).sort();
+
 export const GLOBAL_ROOMS = {
-  regular: scheduleData.A_ROOMS,
-  labs: scheduleData.B_LABS,
+  regular: A_ROOMS.length > 0 ? A_ROOMS : ['Lecture Hall A', 'Lecture Hall B', 'Lecture Hall C'],
+  labs: B_LABS.length > 0 ? B_LABS : ['Lab 101', 'Lab 102'],
   multipurpose: ['Main Event Hall', 'Conference Room 1', 'Conference Room 2']
 };
 
@@ -20,6 +24,19 @@ export const TIME_SLOTS = [
   { id: 5, label: 'المحاضرة الخامسة', start: '16:30', end: '18:10', timeString: '04:30 PM - 06:10 PM' },
   { id: 6, label: 'المحاضرة السادسة', start: '18:30', end: '20:10', timeString: '06:30 PM - 08:10 PM' }
 ];
+
+export const isOutsideWorkingHours = (timeStr) => {
+  if (!timeStr) return true;
+  const [hours, minutes] = timeStr.split(':').map(Number);
+  const timeInMinutes = hours * 60 + minutes;
+  const startLimit = 8 * 60 + 30; 
+  const endLimit = 20 * 60 + 30; 
+  
+  if (timeInMinutes >= startLimit && timeInMinutes < endLimit) {
+    return false; // Within Working Hours
+  }
+  return true; // Outside boundary -> Free flex time permitted
+};
 
 export const COLLEGES = [
   'College of Engineering and Technology',
