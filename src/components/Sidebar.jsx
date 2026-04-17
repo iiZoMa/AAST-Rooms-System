@@ -2,9 +2,11 @@ import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { LayoutDashboard, Search, Calendar, Settings, Plus, ShieldAlert } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
+import { useLanguage } from '../context/LanguageContext';
 
 const Sidebar = () => {
   const { user } = useAuth();
+  const { t } = useLanguage();
   
   if (!user) return null;
 
@@ -21,22 +23,34 @@ const Sidebar = () => {
           </div>
           <div>
             <h4 style={{ margin: 0, fontSize: '0.95rem' }}>{user.name}</h4>
-            <p style={{ margin: 0, fontSize: '0.75rem', color: 'var(--text-gray)' }}>AAST Booking System</p>
+            <p style={{ margin: 0, fontSize: '0.75rem', color: 'var(--text-gray)' }}>{t('sys_name')}</p>
           </div>
         </div>
       </div>
 
-      <nav style={{ padding: '1.5rem 1rem', display: 'flex', flexDirection: 'column', gap: '0.5rem', flex: 1 }}>
+      <nav style={{ padding: '1.5rem 1rem', display: 'flex', flexDirection: 'column', gap: '0.25rem', flex: 1 }}>
+        <NavLink to="/" className={({isActive}) => isActive ? 'nav-item active' : 'nav-item'}>
+          <LayoutDashboard size={20} />
+          {t('overview')}
+        </NavLink>
+        <NavLink to="/rooms" className={({isActive}) => isActive ? 'nav-item active' : 'nav-item'}>
+          <Search size={20} />
+          {t('find_space')}
+        </NavLink>
+        <NavLink to="/fixed-schedule" className={({isActive}) => isActive ? 'nav-item active' : 'nav-item'}>
+          <Calendar size={20} />
+          {t('my_schedule')}
+        </NavLink>
         <NavLink to="/delegations" className={({isActive}) => isActive ? 'nav-item active' : 'nav-item'}>
           <ShieldAlert size={20} />
-          Authority & Delegations
+          {t('delegations')}
         </NavLink>
       </nav>
 
       <div style={{ padding: '1.5rem' }}>
         <Link to="/multipurpose-request" style={{ textDecoration: 'none' }}>
-          <button className="btn btn-primary" style={{ width: '100%', backgroundColor: '#0b1a40' }}>
-            <Plus size={18} /> Request Multipurpose Room
+          <button className="btn btn-primary" style={{ width: '100%', backgroundColor: 'var(--primary-color)', borderRadius: '24px', padding: '0.75rem', fontSize: '0.85rem' }}>
+            {t('req_multi')}
           </button>
         </Link>
       </div>

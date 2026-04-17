@@ -6,14 +6,18 @@ import { AuthProvider } from './context/AuthContext.jsx';
 import { BookingProvider } from './context/BookingContext.jsx';
 import { BrowserRouter } from 'react-router-dom';
 
+import { LanguageProvider } from './context/LanguageContext.jsx';
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
-      <AuthProvider>
-        <BookingProvider>
-          <App />
-        </BookingProvider>
-      </AuthProvider>
+      <LanguageProvider>
+        <AuthProvider>
+          <BookingProvider>
+            <App />
+          </BookingProvider>
+        </AuthProvider>
+      </LanguageProvider>
     </BrowserRouter>
   </React.StrictMode>,
 )
