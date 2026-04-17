@@ -1,43 +1,75 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate, Link } from 'react-router-dom';
-import { LogIn, UserPlus } from 'lucide-react';
+import { UserPlus, ArrowRight } from 'lucide-react';
 
-const Login = () => {
+const Register = () => {
   const [id, setId] = useState('');
+  const [name, setName] = useState('');
   const [password, setPassword] = useState('');
+  const role = 'staff'; // Hardcoded to staff
   const [error, setError] = useState('');
-  const { login } = useAuth();
+  const [success, setSuccess] = useState(false);
+  const { register } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const result = login(id, password);
+    const result = register(id, name, password, role);
     if (result.success) {
-      navigate('/');
+      setSuccess(true);
+      setError('');
     } else {
       setError(result.message);
     }
   };
+
+  if (success) {
+    return (
+      <div style={styles.container} className="animate-fade-in">
+        <div className="glass-panel" style={styles.card}>
+          <div style={{ textAlign: 'center' }}>
+            <h2 style={{ color: 'var(--success)', marginBottom: '1rem' }}>تم التسجيل بنجاح</h2>
+            <p>حسابك الآن قيد المراجعة. يرجى الانتظار حتى يتم الموافقة عليه من قبل الإدارة (العميد أكرم).</p>
+            <Link to="/login" className="btn btn-primary" style={{ display: 'inline-block', marginTop: '1.5rem' }}>
+              العودة لتسجيل الدخول
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div style={styles.container} className="animate-fade-in">
       <div className="glass-panel" style={styles.card}>
         <div style={styles.header}>
           <div style={styles.logo}>AAST</div>
-          <h2>تسجيل الدخول</h2>
-          <p style={styles.subtitle}>نظام إدارة وحجز القاعات</p>
+          <h2>إنشاء حساب جديد</h2>
+          <p style={styles.subtitle}>الرجاء إدخال بياناتك للتسجيل كعضو هيئة تدريس/موظف</p>
         </div>
 
         {error && <div style={styles.error}>{error}</div>}
 
         <form onSubmit={handleSubmit}>
           <div className="form-group">
+            <label className="form-label">الاسم بالكامل</label>
+            <input 
+              type="text" 
+              className="form-control" 
+              placeholder="الاسم"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+          </div>
+
+          <div className="form-group">
             <label className="form-label">الرقم الوظيفي (ID)</label>
             <input 
               type="text" 
               className="form-control" 
-              placeholder="مثال: 1001، 1002، 1003"
+              placeholder="الرقم الوظيفي"
               value={id}
               onChange={(e) => setId(e.target.value)}
               required
@@ -49,7 +81,7 @@ const Login = () => {
             <input 
               type="password" 
               className="form-control" 
-              placeholder="Password (123)"
+              placeholder="كلمة المرور"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -57,24 +89,14 @@ const Login = () => {
           </div>
 
           <button type="submit" className="btn btn-primary" style={{ width: '100%', marginTop: '1rem' }}>
-            <LogIn size={20} /> دخول
+            <UserPlus size={20} /> تسجيل الحساب
           </button>
         </form>
 
         <div style={{ marginTop: '1.5rem', textAlign: 'center' }}>
-          <p style={{ color: '#666', marginBottom: '0.5rem' }}>ليس لديك حساب؟</p>
-          <Link to="/register" className="btn btn-secondary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', width: '100%', justifyContent: 'center' }}>
-            <UserPlus size={20} /> إنشاء حساب جديد
+          <Link to="/login" style={{ color: 'var(--primary-color)', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none' }}>
+            <ArrowRight size={16} /> العودة لتسجيل الدخول
           </Link>
-        </div>
-
-        <div style={styles.hints}>
-          <p><strong>للتجربة:</strong></p>
-          <ul style={{ paddingRight: '20px' }}>
-            <li>هيئة التدريس: ID 1001 / Pass 123</li>
-            <li>العميد أكرم: ID 1002 / Pass 123</li>
-            <li>الدكتور فيصل: ID 1003 / Pass 123</li>
-          </ul>
         </div>
       </div>
     </div>
@@ -96,7 +118,7 @@ const styles = {
   },
   card: {
     width: '100%',
-    maxWidth: '450px',
+    maxWidth: '500px',
     backgroundColor: 'rgba(255, 255, 255, 0.95)',
   },
   header: {
@@ -125,15 +147,7 @@ const styles = {
     marginBottom: '1rem',
     textAlign: 'center',
     fontWeight: 'bold',
-  },
-  hints: {
-    marginTop: '2rem',
-    padding: '1rem',
-    backgroundColor: '#f8f9fa',
-    borderRadius: '8px',
-    fontSize: '0.9rem',
-    color: '#555'
   }
 };
 
-export default Login;
+export default Register;

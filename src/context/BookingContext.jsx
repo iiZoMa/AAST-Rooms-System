@@ -19,22 +19,40 @@ export const BookingProvider = ({ children }) => {
     }
   ]);
 
+  const [notifications, setNotifications] = useState([]);
+
   const addBooking = (booking) => {
     const newBooking = {
       ...booking,
       id: Date.now(),
-      // Regular rooms are automatically approved (or assume basic workflow), multipurpose requires dean -> faisal
       status: booking.roomType === 'regular' ? 'approved' : 'pending_dean'
     };
     setBookings([newBooking, ...bookings]);
   };
 
+  const addNotification = (role, message) => {
+    setNotifications(prev => [{ id: Date.now() + Math.random(), role, message, read: false }, ...prev]);
+  };
+
+  const markNotificationAsRead = (id) => {
+    setNotifications(prev => prev.map(n => n.id === id ? { ...n, read: true } : n));
+  };
+
+  const clearAllNotifications = (role) => {
+    setNotifications(prev => prev.filter(n => n.role !== role));
+  };
+
   const updateBookingStatus = (id, newStatus) => {
     setBookings(bookings.map(b => b.id === id ? { ...b, status: newStatus } : b));
+    
+    if (newStatus === 'pending_faisal') {
+      const roomBooking = bookings.find(b => b.id === id);
+      addNotification('faisal', `تم تحويل طلب القاعة (${roomBooking?.roomName}) من السيد العميد أكرم وبانتظار اعتمادك النهائي.`);
+    }
   };
 
   return (
-    <BookingContext.Provider value={{ bookings, addBooking, updateBookingStatus }}>
+    <BookingContext.Provider value={{ bookings, addBooking, updateBookingStatus, notifications, addNotification, markNotificationAsRead, clearAllNotifications }}>
       {children}
     </BookingContext.Provider>
   );

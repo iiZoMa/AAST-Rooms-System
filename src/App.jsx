@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useAuth } from './context/AuthContext';
 import Login from './pages/Login';
+import Register from './pages/Register';
 import StaffDashboard from './pages/StaffDashboard';
 import DeanDashboard from './pages/DeanDashboard';
 import FaisalDashboard from './pages/FaisalDashboard';
@@ -42,6 +43,7 @@ const App = () => {
       <div className="container" style={{ paddingTop: user ? '80px' : '0' }}>
         <Routes>
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           
           <Route path="/" element={<RoleBasedRedirect />} />
 
