@@ -29,6 +29,7 @@ export const BookingProvider = ({ children }) => {
 
   const [notifications, setNotifications] = useState([]);
 
+<<<<<<< HEAD
   const addNotification = (message) => {
     setNotifications([{ id: Date.now(), message, date: new Date().toLocaleString() }, ...notifications]);
   };
@@ -42,6 +43,8 @@ export const BookingProvider = ({ children }) => {
     );
   };
 
+=======
+>>>>>>> origin/master
   const addBooking = (booking) => {
     // If user tries to submit an overlapping time for an actively secured room
     if (checkOverlap(booking.roomName, booking.date, booking.time)) {
@@ -51,14 +54,19 @@ export const BookingProvider = ({ children }) => {
     const newBooking = {
       ...booking,
       id: Date.now(),
+<<<<<<< HEAD
       status: booking.applicantRole === 'admin' ? 'pending_manager' : 'pending_admin',
       rejectionReason: '',
       suggestedAlternative: ''
+=======
+      status: booking.roomType === 'regular' ? 'approved' : 'pending_dean'
+>>>>>>> origin/master
     };
     setBookings([newBooking, ...bookings]);
     return { success: true, message: 'Request submitted successfully!' };
   };
 
+<<<<<<< HEAD
   const updateBookingStatus = (id, newStatus, rejectionReason = '', suggestedAlternative = '') => {
     const booking = bookings.find(b => b.id === id);
     
@@ -93,6 +101,31 @@ export const BookingProvider = ({ children }) => {
 
   return (
     <BookingContext.Provider value={{ bookings, notifications, addBooking, updateBookingStatus, forceModifyBooking, cancelBooking }}>
+=======
+  const addNotification = (role, message) => {
+    setNotifications(prev => [{ id: Date.now() + Math.random(), role, message, read: false }, ...prev]);
+  };
+
+  const markNotificationAsRead = (id) => {
+    setNotifications(prev => prev.map(n => n.id === id ? { ...n, read: true } : n));
+  };
+
+  const clearAllNotifications = (role) => {
+    setNotifications(prev => prev.filter(n => n.role !== role));
+  };
+
+  const updateBookingStatus = (id, newStatus) => {
+    setBookings(bookings.map(b => b.id === id ? { ...b, status: newStatus } : b));
+    
+    if (newStatus === 'pending_faisal') {
+      const roomBooking = bookings.find(b => b.id === id);
+      addNotification('faisal', `تم تحويل طلب القاعة (${roomBooking?.roomName}) من السيد العميد أكرم وبانتظار اعتمادك النهائي.`);
+    }
+  };
+
+  return (
+    <BookingContext.Provider value={{ bookings, addBooking, updateBookingStatus, notifications, addNotification, markNotificationAsRead, clearAllNotifications }}>
+>>>>>>> origin/master
       {children}
     </BookingContext.Provider>
   );
