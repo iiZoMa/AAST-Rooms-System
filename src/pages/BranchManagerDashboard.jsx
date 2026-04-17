@@ -18,7 +18,7 @@ const BranchManagerDashboard = () => {
   const handleReject = (id) => updateBookingStatus(id, 'rejected', 'Branch Manager invoked final refusal.');
 
   const startEdit = (booking) => {
-    const isStandard = TIME_SLOTS.includes(booking.time);
+    const isStandard = TIME_SLOTS.some(slot => slot.timeString === booking.time);
     setTimeMode(isStandard ? 'standard' : 'custom');
     if (!isStandard) {
        setCustomTime(booking.time || '');
@@ -104,7 +104,7 @@ const BranchManagerDashboard = () => {
                  if(e.target.value === 'custom') setTimeMode('custom');
                  else { setTimeMode('standard'); setEditing({...editing, time: e.target.value}); }
                }}>
-                 {TIME_SLOTS.map(slot => <option key={slot} value={slot}>{slot}</option>)}
+                 {TIME_SLOTS.map(slot => <option key={slot.id} value={slot.timeString}>{slot.timeString}</option>)}
                  <option value="custom">[ Custom Time (Off-Hours) ]</option>
                </select>
             </div>
