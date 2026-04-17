@@ -7,7 +7,6 @@ const Register = () => {
   const [id, setId] = useState('');
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
-  const role = 'staff'; // Hardcoded to staff
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
   const { register } = useAuth();
@@ -15,7 +14,7 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const result = register(id, name, password, role);
+    const result = register(id, name, password);
     if (result.success) {
       setSuccess(true);
       setError('');
@@ -29,8 +28,8 @@ const Register = () => {
       <div style={styles.container} className="animate-fade-in">
         <div className="glass-panel" style={styles.card}>
           <div style={{ textAlign: 'center' }}>
-            <h2 style={{ color: 'var(--success)', marginBottom: '1rem' }}>تم التسجيل بنجاح</h2>
-            <p>حسابك الآن قيد المراجعة. يرجى الانتظار حتى يتم الموافقة عليه من قبل الإدارة (العميد أكرم).</p>
+            <h2 style={{ color: 'var(--success)', marginBottom: '1rem' }}>Registration Successful!</h2>
+            <p>Your user profile has been created.</p>
             <Link to="/login" className="btn btn-primary" style={{ display: 'inline-block', marginTop: '1.5rem' }}>
               العودة لتسجيل الدخول
             </Link>
