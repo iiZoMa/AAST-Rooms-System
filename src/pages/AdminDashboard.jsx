@@ -2,20 +2,28 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useBookings, GLOBAL_ROOMS, TIME_SLOTS, isOutsideWorkingHours } from '../context/BookingContext';
-import { Check, X, Clock3, Calendar, Bell, Building, Edit3, Save, Plus } from 'lucide-react';
+import { Check, X, Clock3, Calendar, Bell, Building, Edit3, Save, Plus, User } from 'lucide-react';
 
 const AdminDashboard = () => {
   const { user, users, approveUser, rejectUser } = useAuth();
-  const { bookings, addBooking, updateBookingStatus, notifications, addNotification, fixedSchedule, TIME_SLOTS, swapFixedScheduleRoom } = useBookings();
+  const { 
+    bookings, 
+    addBooking, 
+    updateBookingStatus, 
+    notifications, 
+    addNotification, 
+    fixedSchedule, 
+    swapFixedScheduleRoom,
+    forceModifyBooking
+  } = useBookings();
+  const navigate = useNavigate();
 
   const pendingRequests = bookings.filter(b => b.status === 'pending_admin');
   const pendingUsers = Object.values(users || {}).filter(u => u.status === 'pending');
-
   const allBookings = bookings;
 
   const [rejectId, setRejectId] = useState(null);
   const [rejectReason, setRejectReason] = useState('');
-  const [suggestedAlternative, setSuggestedAlternative] = useState('');
 
   const [showModal, setShowModal] = useState(false);
   const [roomName, setRoomName] = useState(GLOBAL_ROOMS.multipurpose[0]);
@@ -23,13 +31,17 @@ const AdminDashboard = () => {
   const [time, setTime] = useState('');
   const [reason, setReason] = useState('');
 
-  const [swapId, setSwapId] = useState(null);
-  const [swapRoomName, setSwapRoomName] = useState('');
-
   // Global Override Console Logic
   const [editing, setEditing] = useState(null);
   const [editTimeMode, setEditTimeMode] = useState('standard');
   const [editCustomTime, setEditCustomTime] = useState('');
+
+  const isBooked = bookings.some(b => 
+    b.roomName === roomName && 
+    b.date === date && 
+    b.time === time && 
+    (b.status === 'approved' || b.status === 'pending_manager')
+  );
 
   const handleApprove = (booking) => {
     const newStatus = booking.roomType === 'regular' ? 'approved' : 'pending_manager';
@@ -53,6 +65,39 @@ const AdminDashboard = () => {
     }
   };
 
+  const handleAdminMultipurposeRequest = (e) => {
+    e.preventDefault();
+    const result = addBooking({
+      applicantId: user.id,
+      applicantName: user.name,
+      applicantRole: user.role,
+      roomType: 'multipurpose',
+      roomName,
+      date,
+      time,
+      reason
+    });
+
+    if (result.success) {
+      alert(result.message);
+      setShowModal(false);
+      setRoomName(GLOBAL_ROOMS.multipurpose[0]);
+      setDate('');
+      setTime('');
+      setReason('');
+    } else {
+      alert(result.message);
+    }
+  };
+
+  const handleApproveUser = (userId) => {
+    approveUser(userId);
+    const u = users[userId];
+    if (addNotification && u) {
+      addNotification(`Admin approved a new account for employee: ${u.name}`);
+    }
+  };
+
   const startEdit = (booking) => {
     const isStandard = TIME_SLOTS.some(slot => slot.timeString === booking.time);
     setEditTimeMode(isStandard ? 'standard' : 'custom');
@@ -63,7 +108,7 @@ const AdminDashboard = () => {
   const handleSaveModification = () => {
     let finalTime = editing.time;
     if (editTimeMode === 'custom') {
-      if (!isOutsideWorkingHours(editCustomTime)) {
+      if (typeof isOutsideWorkingHours === 'function' && !isOutsideWorkingHours(editCustomTime)) {
         alert('Cannot override with this custom hour block! Modifying custom times is strictly reserved for OUTSIDE standard working hours only.');
         return;
       }
@@ -76,16 +121,6 @@ const AdminDashboard = () => {
     } else {
       alert('Active modification broadcasted globally!');
       setEditing(null);
-    }
-  };
-
-  const handleSwapSubmit = (id) => {
-    if (!swapRoomName) return;
-    const result = swapFixedScheduleRoom(id, swapRoomName);
-    if (result.success) {
-      setSwapId(null);
-    } else {
-      alert(result.message);
     }
   };
 
@@ -154,7 +189,49 @@ const AdminDashboard = () => {
         <p style={{ color: '#666' }}>System overview, approvals, status tracking, and global registry override.</p>
       </div>
 
-
+      {/* Employees Database */}
+      <div style={{ marginBottom: '3rem' }}>
+        <h3 style={{ marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <Building size={20} /> Employees Database
+        </h3>
+        <div className="glass-panel" style={{ padding: 0, overflow: 'hidden', border: '1px solid #e2e8f0' }}>
+          <div style={{ maxHeight: '300px', overflowY: 'auto' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+              <thead style={{ backgroundColor: '#f8fafc', borderBottom: '2px solid #e2e8f0', position: 'sticky', top: 0, zIndex: 1 }}>
+                <tr>
+                  <th style={{ padding: '1rem', textAlign: 'left', fontSize: '0.75rem', fontWeight: '700', color: '#64748b', textTransform: 'uppercase' }}>Employee ID</th>
+                  <th style={{ padding: '1rem', textAlign: 'left', fontSize: '0.75rem', fontWeight: '700', color: '#64748b', textTransform: 'uppercase' }}>Full Name</th>
+                  <th style={{ padding: '1rem', textAlign: 'left', fontSize: '0.75rem', fontWeight: '700', color: '#64748b', textTransform: 'uppercase' }}>Role</th>
+                  <th style={{ padding: '1rem', textAlign: 'left', fontSize: '0.75rem', fontWeight: '700', color: '#64748b', textTransform: 'uppercase' }}>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {Object.values(users || {}).map((u) => (
+                  <tr key={u.id} style={{ borderBottom: '1px solid #f1f5f9' }}>
+                    <td style={{ padding: '0.85rem 1rem', fontSize: '0.9rem', color: '#1e293b', fontWeight: '600' }}>{u.id}</td>
+                    <td style={{ padding: '0.85rem 1rem', fontSize: '0.9rem', color: '#1e293b' }}>{u.name}</td>
+                    <td style={{ padding: '0.85rem 1rem', fontSize: '0.85rem', color: '#64748b' }}>
+                      <span style={{ textTransform: 'capitalize' }}>{u.role.replace('_', ' ')}</span>
+                    </td>
+                    <td style={{ padding: '0.85rem 1rem' }}>
+                      <span style={{ 
+                        fontSize: '0.7rem', 
+                        padding: '0.2rem 0.5rem', 
+                        backgroundColor: u.status === 'pending' ? '#fef3c7' : '#d1fae5', 
+                        color: u.status === 'pending' ? '#92400e' : '#065f46', 
+                        borderRadius: '4px', 
+                        fontWeight: '700' 
+                      }}>
+                        {u.status === 'pending' ? 'WAITING' : 'ACTIVE'}
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
 
       {pendingUsers.length > 0 && (
         <div style={{ marginBottom: '2rem' }}>
@@ -174,19 +251,7 @@ const AdminDashboard = () => {
         </div>
       )}
 
-      {notifications.length > 0 && (
-        <div style={{ backgroundColor: '#fff3cd', borderLeft: '4px solid #ffecb5', padding: '1rem', marginBottom: '2rem', borderRadius: '4px' }}>
-          <h4 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', margin: '0 0 0.5rem 0', color: '#856404' }}>
-            <Bell size={18} /> Administrative Tracking
-          </h4>
-          <ul style={{ margin: 0, paddingLeft: '1.5rem', color: '#856404', fontSize: '0.9rem' }}>
-            {notifications.map(n => <li key={n.id} style={{ marginBottom: '0.25rem' }}>[{n.date}] {n.message}</li>)}
-          </ul>
-        </div>
-      )}
-    </div>
-      </div >
-
+      {/* Global Override Console */}
       <div style={{ marginBottom: '3rem' }}>
         <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
           <Edit3 size={20} /> Master Registry & Global Override Console
@@ -212,7 +277,7 @@ const AdminDashboard = () => {
                  if(e.target.value === 'custom') setEditTimeMode('custom');
                  else { setEditTimeMode('standard'); setEditing({...editing, time: e.target.value}); }
                }}>
-                 {TIME_SLOTS.map(slot => <option key={slot.id} value={slot.timeString}>{slot.timeString}</option>)}
+                 {TIME_SLOTS.map(slot => <option key={slot.timeString} value={slot.timeString}>{slot.timeString}</option>)}
                  <option value="custom">[ Custom Time (Off-Hours) ]</option>
                </select>
             </div>
@@ -223,7 +288,7 @@ const AdminDashboard = () => {
               </div>
             )}
             <div style={{ display: 'flex', gap: '0.5rem', marginTop: '1.5rem' }}>
-              <button className="btn btn-primary" onClick={handleSaveModification} style={{ flex: 1, backgroundColor: '#cc0000', border: 'none', opacity: (editTimeMode === 'custom' && !isOutsideWorkingHours(editCustomTime)) ? 0.5 : 1 }} disabled={editTimeMode === 'custom' && !isOutsideWorkingHours(editCustomTime)}>
+              <button className="btn btn-primary" onClick={handleSaveModification} style={{ flex: 1, backgroundColor: '#cc0000', border: 'none' }}>
                 <Save size={16} /> Execute Global Overwrite
               </button>
               <button className="btn" onClick={() => setEditing(null)} style={{ flex: 1, backgroundColor: '#eee' }}>Cancel Operation</button>
@@ -272,7 +337,7 @@ const AdminDashboard = () => {
         {pendingRequests.length === 0 ? (
           <p style={{ color: '#888' }}>No pending requests.</p>
         ) : (
-           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '1rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '1rem' }}>
             {pendingRequests.map(b => (
               <div key={b.id} className="glass-panel" style={{ borderLeft: '4px solid var(--primary-color)', padding: '1rem' }}>
                 <h4 style={{ margin: 0 }}>{b.roomName} ({b.roomType === 'regular' ? 'Regular' : 'Multipurpose'})</h4>
@@ -302,7 +367,7 @@ const AdminDashboard = () => {
 
       <div style={{ marginTop: '3rem' }}>
         <h3 style={{ marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <FileText size={20} /> Daily Activity Report
+          <Bell size={20} /> Daily Activity Report
         </h3>
         <div className="glass-panel" style={{ padding: 0, overflow: 'hidden', border: '1px solid #e2e8f0' }}>
           <table style={{ width: '100%', borderCollapse: 'collapse' }}>
@@ -342,7 +407,7 @@ const AdminDashboard = () => {
         </div>
       </div>
 
-    </div >
+    </div>
   );
 };
 
@@ -350,7 +415,7 @@ const styles = {
   table: { width: '100%', borderCollapse: 'collapse', textAlign: 'left' },
   fab: { position: 'fixed', bottom: '2rem', right: '2rem', width: '60px', height: '60px', borderRadius: '50%', backgroundColor: 'var(--primary-color)', color: 'white', border: 'none', boxShadow: '0 4px 12px rgba(0,0,0,0.3)', cursor: 'pointer', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: 100 },
   modalOverlay: { position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0,0,0,0.5)', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: 200, padding: '1rem' },
-  modalContent: { width: '100%', maxWidth: '500px', padding: '2rem', backgroundColor: 'white', position: 'relative' }
+  modalContent: { width: '100%', maxWidth: '500px', padding: '2rem', backgroundColor: 'white', position: 'relative', borderRadius: '12px' }
 };
 
 export default AdminDashboard;

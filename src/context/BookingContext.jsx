@@ -26,16 +26,18 @@ export const TIME_SLOTS = [
 ];
 
 export const isOutsideWorkingHours = (timeStr) => {
-  if (!timeStr) return true;
-  const [hours, minutes] = timeStr.split(':').map(Number);
-  const timeInMinutes = hours * 60 + minutes;
-  const startLimit = 8 * 60 + 30; 
-  const endLimit = 20 * 60 + 30; 
+  if (!timeStr) return false;
+  // If it's a standard slot string, it's NOT outside
+  if (TIME_SLOTS.some(s => s.timeString === timeStr)) return false;
   
-  if (timeInMinutes >= startLimit && timeInMinutes < endLimit) {
-    return false; // Within Working Hours
-  }
-  return true; // Outside boundary -> Free flex time permitted
+  // Parse HH:mm
+  const [hours, minutes] = timeStr.split(':').map(Number);
+  const totalMinutes = hours * 60 + (minutes || 0);
+  
+  const startLimit = 8 * 60 + 30; // 08:30
+  const endLimit = 20 * 60 + 10;  // 20:10
+  
+  return totalMinutes < startLimit || totalMinutes > endLimit;
 };
 
 export const COLLEGES = [
