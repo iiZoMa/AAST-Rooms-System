@@ -9,6 +9,28 @@ export const GLOBAL_ROOMS = {
   multipurpose: ['Main Event Hall', 'Conference Room 1', 'Conference Room 2']
 };
 
+export const TIME_SLOTS = [
+  '08:30 - 10:30',
+  '10:30 - 12:30',
+  '12:30 - 14:30',
+  '14:30 - 16:30',
+  '16:30 - 18:30',
+  '18:30 - 20:30'
+];
+
+export const isOutsideWorkingHours = (timeStr) => {
+  if (!timeStr) return true;
+  const [hours, minutes] = timeStr.split(':').map(Number);
+  const timeInMinutes = hours * 60 + minutes;
+  const startLimit = 8 * 60 + 30; 
+  const endLimit = 20 * 60 + 30; 
+  
+  if (timeInMinutes >= startLimit && timeInMinutes < endLimit) {
+    return false; // Within Working Hours
+  }
+  return true; // Outside boundary -> Free flex time permitted
+};
+
 export const BookingProvider = ({ children }) => {
   const [bookings, setBookings] = useState([
     {
@@ -19,7 +41,7 @@ export const BookingProvider = ({ children }) => {
       roomType: 'multipurpose',
       roomName: 'Main Event Hall',
       date: '2026-05-01',
-      time: '10:00',
+      time: '08:30 - 10:30',
       reason: 'Graduation Setup',
       status: 'pending_admin',
       rejectionReason: '',

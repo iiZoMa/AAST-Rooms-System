@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { useBookings, GLOBAL_ROOMS } from '../context/BookingContext';
+import { useBookings, GLOBAL_ROOMS, TIME_SLOTS, isOutsideWorkingHours } from '../context/BookingContext';
 import { Check, X, Clock3, MapPin, User, FileText, Calendar, Bell, Building, Plus } from 'lucide-react';
 
 const AdminDashboard = () => {
@@ -19,8 +19,21 @@ const AdminDashboard = () => {
   const [showModal, setShowModal] = useState(false);
   const [roomName, setRoomName] = useState(GLOBAL_ROOMS.multipurpose[0]);
   const [date, setDate] = useState('');
-  const [time, setTime] = useState('');
+  
+  const [timeMode, setTimeMode] = useState('standard');
+  const [standardTime, setStandardTime] = useState(TIME_SLOTS[0]);
+  const [customTime, setCustomTime] = useState('');
   const [reason, setReason] = useState('');
+
+  const selectedTime = timeMode === 'standard' ? standardTime : customTime;
+  const isInvalidCustom = timeMode === 'custom' && !isOutsideWorkingHours(customTime);
+
+  const isBooked = bookings.some(b => 
+    b.roomName === roomName && 
+    b.date === date && 
+    b.time === selectedTime && 
+    (b.status === 'approved' || b.status === 'pending_manager')
+  );
 
   const handleApprove = (booking) => {
     const newStatus = booking.roomType === 'regular' ? 'approved' : 'pending_manager';
@@ -41,15 +54,10 @@ const AdminDashboard = () => {
     setRejectId(null);
   };
 
-  const isBooked = bookings.some(b => 
-    b.roomName === roomName && 
-    b.date === date && 
-    b.time === time && 
-    (b.status === 'approved' || b.status === 'pending_manager')
-  );
-
   const handleAdminMultipurposeRequest = (e) => {
     e.preventDefault();
+    if (isInvalidCustom) return;
+
     const result = addBooking({
       applicantId: user.id,
       applicantName: user.name,
@@ -57,12 +65,12 @@ const AdminDashboard = () => {
       roomType: 'multipurpose',
       roomName,
       date,
-      time,
+      time: selectedTime,
       reason
     });
     
     if (result.success) {
-      setRoomName(GLOBAL_ROOMS.multipurpose[0]); setDate(''); setTime(''); setReason('');
+      setRoomName(GLOBAL_ROOMS.multipurpose[0]); setDate(''); setStandardTime(TIME_SLOTS[0]); setCustomTime(''); setTimeMode('standard'); setReason('');
       setShowModal(false);
       alert('Request sent directly to Branch Manager.');
     } else {
@@ -77,8 +85,10 @@ const AdminDashboard = () => {
         style={styles.fab} 
         onClick={() => setShowModal(true)} 
         title="Request Multipurpose Room"
+        onMouseOver={e => e.currentTarget.style.transform = 'translateY(-2px)'}
+        onMouseOut={e => e.currentTarget.style.transform = 'translateY(0)'}
       >
-        <Plus size={24} color="#fff" />
+        <Plus size={20} color="#fff" /> Request Flex-Room
       </button>
 
       {showModal && (
@@ -107,23 +117,46 @@ const AdminDashboard = () => {
                   <input type="date" className="form-control" value={date} onChange={(e) => setDate(e.target.value)} required />
                 </div>
                 <div style={{ flex: 1 }}>
-                  <label className="form-label">Time</label>
-                  <input type="time" className="form-control" value={time} onChange={(e) => setTime(e.target.value)} required />
+                  <label className="form-label">Time Selection</label>
+                  <select className="form-control" value={timeMode === 'standard' ? standardTime : 'custom'} onChange={(e) => {
+                    if(e.target.value === 'custom') {
+                      setTimeMode('custom');
+                    } else {
+                      setTimeMode('standard');
+                      setStandardTime(e.target.value);
+                    }
+                  }}>
+                    {TIME_SLOTS.map(slot => <option key={slot} value={slot}>{slot}</option>)}
+                    <option value="custom">[ Custom Time (Off-Hours) ]</option>
+                  </select>
                 </div>
               </div>
+              
+              {timeMode === 'custom' && (
+                <div className="form-group animate-fade-in" style={{ padding: '1rem', backgroundColor: '#f5f5f5', borderRadius: '4px', borderLeft: '3px solid var(--primary-color)' }}>
+                  <label className="form-label">Custom Off-Hours Time</label>
+                  <input type="time" className="form-control" value={customTime} onChange={(e) => setCustomTime(e.target.value)} required />
+                  {isInvalidCustom && customTime && (
+                    <p style={{ color: '#cc0000', fontSize: '0.85rem', marginTop: '0.5rem', marginBottom: 0 }}>
+                      <strong>Restricted:</strong> Time ({customTime}) is during standard working hours. Please use the dropdown grid explicitly.
+                    </p>
+                  )}
+                </div>
+              )}
+
               <div className="form-group" style={{ marginBottom: '1rem' }}>
                 <label className="form-label">Reason</label>
                 <textarea className="form-control" rows="2" value={reason} onChange={(e) => setReason(e.target.value)} required></textarea>
               </div>
               
-              {isBooked && (
+              {isBooked && selectedTime && date && (
                 <div style={{ backgroundColor: '#f8d7da', color: '#721c24', padding: '0.75rem', borderRadius: '4px', marginBottom: '1rem', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                    <strong>Warning:</strong> This room is booked at this date and time!
                 </div>
               )}
 
-              <button type="submit" className="btn btn-primary" style={{ width: '100%', opacity: isBooked ? 0.5 : 1 }} disabled={isBooked || !date || !time}>
-                {isBooked ? 'Unavailable' : 'Send Request'}
+              <button type="submit" className="btn btn-primary" style={{ width: '100%', opacity: (isBooked || isInvalidCustom) ? 0.5 : 1 }} disabled={isBooked || isInvalidCustom || !date || !selectedTime}>
+                {isBooked ? 'Unavailable' : isInvalidCustom ? 'Invalid Time' : 'Send Request'}
               </button>
             </form>
           </div>
@@ -239,7 +272,7 @@ const styles = {
   table: { width: '100%', borderCollapse: 'collapse', textAlign: 'left' },
   badgeSuccess: { backgroundColor: '#d4edda', color: '#155724', padding: '0.25rem 0.5rem', borderRadius: '4px', fontSize: '0.8rem', fontWeight: 'bold' },
   badgeDanger: { backgroundColor: '#f8d7da', color: '#721c24', padding: '0.25rem 0.5rem', borderRadius: '4px', fontSize: '0.8rem', fontWeight: 'bold' },
-  fab: { position: 'fixed', bottom: '2rem', right: '2rem', width: '60px', height: '60px', borderRadius: '50%', backgroundColor: 'var(--primary-color)', color: 'white', border: 'none', boxShadow: '0 4px 12px rgba(0,0,0,0.3)', cursor: 'pointer', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: 100 },
+  fab: { position: 'fixed', bottom: '2rem', right: '2rem', padding: '0.75rem 1.5rem', borderRadius: '30px', backgroundColor: 'var(--primary-color)', color: 'white', border: 'none', boxShadow: '0 6px 15px rgba(0,0,0,0.3)', cursor: 'pointer', display: 'flex', gap: '0.5rem', justifyContent: 'center', alignItems: 'center', zIndex: 100, fontWeight: 'bold', letterSpacing: '0.5px', transition: 'all 0.3s ease', backgroundImage: 'linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%)' },
   modalOverlay: { position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0,0,0,0.5)', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: 200, padding: '1rem' },
   modalContent: { width: '100%', maxWidth: '500px', padding: '2rem', backgroundColor: 'white', position: 'relative' }
 };
