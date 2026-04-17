@@ -5,7 +5,7 @@ import { Check, X, Clock3, MapPin, User, FileText, Calendar, Bell, Building, Plu
 
 const AdminDashboard = () => {
   const { user, users, approveUser, rejectUser } = useAuth();
-  const { bookings, addBooking, updateBookingStatus, notifications, addNotification } = useBookings();
+  const { bookings, addBooking, updateBookingStatus, notifications, addNotification, fixedSchedule, TIME_SLOTS, swapFixedScheduleRoom } = useBookings();
 
   const pendingRequests = bookings.filter(b => b.status === 'pending_admin');
   const activeBookings = bookings.filter(b => b.status === 'approved' || b.status === 'pending_manager');
@@ -22,6 +22,9 @@ const AdminDashboard = () => {
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
   const [reason, setReason] = useState('');
+
+  const [swapId, setSwapId] = useState(null);
+  const [swapRoomName, setSwapRoomName] = useState('');
 
   const handleApprove = (booking) => {
     const newStatus = booking.roomType === 'regular' ? 'approved' : 'pending_manager';
@@ -78,6 +81,18 @@ const AdminDashboard = () => {
       addNotification(`Admin approved a new account for employee: ${u.name}`);
     }
   };
+
+  const handleSwapSubmit = (id) => {
+    if (!swapRoomName) return;
+    const result = swapFixedScheduleRoom(id, swapRoomName);
+    if (result.success) {
+      setSwapId(null);
+    } else {
+      alert(result.message);
+    }
+  };
+
+  const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
   return (
     <div className="animate-fade-in" style={{ paddingBottom: '2rem', position: 'relative' }}>
@@ -144,6 +159,8 @@ const AdminDashboard = () => {
         <p style={{ color: '#666' }}>System overview, approvals, and status tracking.</p>
       </div>
 
+
+
       {pendingUsers.length > 0 && (
         <div style={{ marginBottom: '2rem' }}>
           <h3 style={{ marginBottom: '1rem', color: 'var(--primary-color)' }}>Pending Account Approvals</h3>
@@ -162,55 +179,9 @@ const AdminDashboard = () => {
         </div>
       )}
 
-      {notifications.length > 0 && (
-        <div style={{ backgroundColor: '#fff3cd', borderLeft: '4px solid #ffecb5', padding: '1rem', marginBottom: '2rem', borderRadius: '4px' }}>
-          <h4 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', margin: '0 0 0.5rem 0', color: '#856404' }}>
-            <Bell size={18} /> Notifications
-          </h4>
-          <ul style={{ margin: 0, paddingLeft: '1.5rem', color: '#856404' }}>
-            {notifications.map(n => <li key={n.id}>[{n.date}] {n.message}</li>)}
-          </ul>
-        </div>
-      )}
 
-      <div style={{ marginBottom: '3rem' }}>
-        <h3 style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-           <Building size={20} /> All Rooms Availability Schedule
-        </h3>
-        <div className="glass-panel" style={{ overflowX: 'auto', padding: '0' }}>
-           <table style={styles.table}>
-             <thead>
-               <tr>
-                 <th>Room Name</th>
-                 <th>Status</th>
-                 <th>Date</th>
-                 <th>Time</th>
-                 <th>Applicant</th>
-               </tr>
-             </thead>
-             <tbody>
-               {allRooms.map(room => {
-                 const currentBooking = activeBookings.find(b => b.roomName.toLowerCase() === room.toLowerCase());
-                 
-                 return (
-                   <tr key={room} style={{ backgroundColor: currentBooking ? 'rgba(255, 0, 0, 0.02)' : 'white' }}>
-                     <td style={{ fontWeight: 'bold' }}>{room}</td>
-                     <td>
-                       {currentBooking ? 
-                         <span style={styles.badgeDanger}>Occupied</span> : 
-                         <span style={styles.badgeSuccess}>Available</span>
-                       }
-                     </td>
-                     <td>{currentBooking ? currentBooking.date : '--'}</td>
-                     <td>{currentBooking ? currentBooking.time : '--'}</td>
-                     <td>{currentBooking ? `${currentBooking.applicantName} (${currentBooking.applicantRole})` : '--'}</td>
-                   </tr>
-                 );
-               })}
-             </tbody>
-           </table>
-        </div>
-      </div>
+
+
 
       <div>
         <h3 style={{ margin: '2rem 0 1.5rem 0', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>

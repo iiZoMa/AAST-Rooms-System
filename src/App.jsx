@@ -7,6 +7,8 @@ import AdminDashboard from './pages/AdminDashboard';
 import BranchManagerDashboard from './pages/BranchManagerDashboard';
 import EmployeeDashboard from './pages/EmployeeDashboard';
 import SecretaryDashboard from './pages/SecretaryDashboard';
+import FixedSchedulePage from './pages/FixedSchedulePage';
+import RoomsPage from './pages/RoomsPage';
 import Layout from './components/Layout';
 
 const RequireAuth = ({ children, allowedRoles }) => {
@@ -40,6 +42,9 @@ const App = () => {
       <Route path="/manager/*" element={<RequireAuth allowedRoles={['branch_manager']}><BranchManagerDashboard /></RequireAuth>} />
       <Route path="/employee/*" element={<RequireAuth allowedRoles={['employee']}><EmployeeDashboard /></RequireAuth>} />
       <Route path="/secretary/*" element={<RequireAuth allowedRoles={['secretary']}><SecretaryDashboard /></RequireAuth>} />
+      
+      <Route path="/rooms" element={<RequireAuth><RoomsPage /></RequireAuth>} />
+      <Route path="/fixed-schedule" element={<RequireAuth><FixedSchedulePage /></RequireAuth>} />
     </Routes>
   );
 };

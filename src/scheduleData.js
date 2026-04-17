@@ -1,0 +1,3428 @@
+export const scheduleData = {
+  "fixedSchedule": [
+    {
+      "id": "fs1",
+      "dayOfWeek": 0,
+      "slotId": 1,
+      "roomName": "A-107",
+      "subject": "Engineering Drawing",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs2",
+      "dayOfWeek": 0,
+      "slotId": 1,
+      "roomName": "A-103",
+      "subject": "Engineering Drawing",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs3",
+      "dayOfWeek": 0,
+      "slotId": 1,
+      "roomName": "A-109",
+      "subject": "Thermodynamics",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs4",
+      "dayOfWeek": 0,
+      "slotId": 2,
+      "roomName": "A-110",
+      "subject": "Physics I",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs5",
+      "dayOfWeek": 0,
+      "slotId": 2,
+      "roomName": "A-106",
+      "subject": "Thermodynamics",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs6",
+      "dayOfWeek": 0,
+      "slotId": 3,
+      "roomName": "A-105",
+      "subject": "Circuits",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs7",
+      "dayOfWeek": 0,
+      "slotId": 3,
+      "roomName": "A-110",
+      "subject": "Thermodynamics",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs8",
+      "dayOfWeek": 0,
+      "slotId": 3,
+      "roomName": "A-108",
+      "subject": "Mathematics 101",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs9",
+      "dayOfWeek": 0,
+      "slotId": 4,
+      "roomName": "A-109",
+      "subject": "Mathematics 101",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs10",
+      "dayOfWeek": 0,
+      "slotId": 4,
+      "roomName": "B-101",
+      "subject": "Mechanics",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs11",
+      "dayOfWeek": 0,
+      "slotId": 4,
+      "roomName": "A-105",
+      "subject": "Thermodynamics",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs12",
+      "dayOfWeek": 0,
+      "slotId": 5,
+      "roomName": "A-105",
+      "subject": "Circuits",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs13",
+      "dayOfWeek": 0,
+      "slotId": 5,
+      "roomName": "B-101",
+      "subject": "Circuits",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs14",
+      "dayOfWeek": 0,
+      "slotId": 5,
+      "roomName": "A-107",
+      "subject": "Thermodynamics",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs15",
+      "dayOfWeek": 0,
+      "slotId": 6,
+      "roomName": "A-104",
+      "subject": "Mechanics",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs16",
+      "dayOfWeek": 0,
+      "slotId": 6,
+      "roomName": "A-105",
+      "subject": "Circuits",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs17",
+      "dayOfWeek": 1,
+      "slotId": 1,
+      "roomName": "A-101",
+      "subject": "Mathematics 101",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs18",
+      "dayOfWeek": 1,
+      "slotId": 1,
+      "roomName": "A-109",
+      "subject": "Circuits",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs19",
+      "dayOfWeek": 1,
+      "slotId": 2,
+      "roomName": "A-105",
+      "subject": "Thermodynamics",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs20",
+      "dayOfWeek": 1,
+      "slotId": 2,
+      "roomName": "A-110",
+      "subject": "Engineering Drawing",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs21",
+      "dayOfWeek": 1,
+      "slotId": 3,
+      "roomName": "A-102",
+      "subject": "Physics I",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs22",
+      "dayOfWeek": 1,
+      "slotId": 3,
+      "roomName": "A-101",
+      "subject": "Circuits",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs23",
+      "dayOfWeek": 1,
+      "slotId": 4,
+      "roomName": "A-103",
+      "subject": "Engineering Drawing",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs24",
+      "dayOfWeek": 1,
+      "slotId": 4,
+      "roomName": "A-110",
+      "subject": "Circuits",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs25",
+      "dayOfWeek": 1,
+      "slotId": 5,
+      "roomName": "B-101",
+      "subject": "Mechanics",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs26",
+      "dayOfWeek": 1,
+      "slotId": 5,
+      "roomName": "A-107",
+      "subject": "Circuits",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs27",
+      "dayOfWeek": 1,
+      "slotId": 6,
+      "roomName": "B-102",
+      "subject": "Mechanics",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs28",
+      "dayOfWeek": 1,
+      "slotId": 6,
+      "roomName": "A-108",
+      "subject": "Mechanics",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs29",
+      "dayOfWeek": 1,
+      "slotId": 6,
+      "roomName": "A-105",
+      "subject": "Physics I",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs30",
+      "dayOfWeek": 2,
+      "slotId": 1,
+      "roomName": "A-101",
+      "subject": "Thermodynamics",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs31",
+      "dayOfWeek": 2,
+      "slotId": 1,
+      "roomName": "A-104",
+      "subject": "Mathematics 101",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs32",
+      "dayOfWeek": 2,
+      "slotId": 2,
+      "roomName": "A-104",
+      "subject": "Circuits",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs33",
+      "dayOfWeek": 2,
+      "slotId": 2,
+      "roomName": "A-103",
+      "subject": "Circuits",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs34",
+      "dayOfWeek": 2,
+      "slotId": 2,
+      "roomName": "A-108",
+      "subject": "Thermodynamics",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs35",
+      "dayOfWeek": 2,
+      "slotId": 3,
+      "roomName": "A-107",
+      "subject": "Mechanics",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs36",
+      "dayOfWeek": 2,
+      "slotId": 3,
+      "roomName": "A-109",
+      "subject": "Mechanics",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs37",
+      "dayOfWeek": 2,
+      "slotId": 3,
+      "roomName": "A-105",
+      "subject": "Physics I",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs38",
+      "dayOfWeek": 2,
+      "slotId": 4,
+      "roomName": "A-107",
+      "subject": "Mechanics",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs39",
+      "dayOfWeek": 2,
+      "slotId": 4,
+      "roomName": "A-101",
+      "subject": "Thermodynamics",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs40",
+      "dayOfWeek": 2,
+      "slotId": 5,
+      "roomName": "A-104",
+      "subject": "Mechanics",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs41",
+      "dayOfWeek": 2,
+      "slotId": 5,
+      "roomName": "A-102",
+      "subject": "Engineering Drawing",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs42",
+      "dayOfWeek": 2,
+      "slotId": 5,
+      "roomName": "A-101",
+      "subject": "Mathematics 101",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs43",
+      "dayOfWeek": 2,
+      "slotId": 6,
+      "roomName": "A-110",
+      "subject": "Physics I",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs44",
+      "dayOfWeek": 2,
+      "slotId": 6,
+      "roomName": "A-102",
+      "subject": "Engineering Drawing",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs45",
+      "dayOfWeek": 3,
+      "slotId": 1,
+      "roomName": "A-106",
+      "subject": "Thermodynamics",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs46",
+      "dayOfWeek": 3,
+      "slotId": 1,
+      "roomName": "A-102",
+      "subject": "Physics I",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs47",
+      "dayOfWeek": 3,
+      "slotId": 2,
+      "roomName": "A-108",
+      "subject": "Mechanics",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs48",
+      "dayOfWeek": 3,
+      "slotId": 2,
+      "roomName": "A-109",
+      "subject": "Circuits",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs49",
+      "dayOfWeek": 3,
+      "slotId": 2,
+      "roomName": "A-106",
+      "subject": "Physics I",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs50",
+      "dayOfWeek": 3,
+      "slotId": 3,
+      "roomName": "A-101",
+      "subject": "Engineering Drawing",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs51",
+      "dayOfWeek": 3,
+      "slotId": 3,
+      "roomName": "A-104",
+      "subject": "Mathematics 101",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs52",
+      "dayOfWeek": 3,
+      "slotId": 4,
+      "roomName": "A-102",
+      "subject": "Mechanics",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs53",
+      "dayOfWeek": 3,
+      "slotId": 4,
+      "roomName": "A-101",
+      "subject": "Thermodynamics",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs54",
+      "dayOfWeek": 3,
+      "slotId": 4,
+      "roomName": "A-108",
+      "subject": "Circuits",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs55",
+      "dayOfWeek": 3,
+      "slotId": 5,
+      "roomName": "A-102",
+      "subject": "Thermodynamics",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs56",
+      "dayOfWeek": 3,
+      "slotId": 5,
+      "roomName": "A-106",
+      "subject": "Physics I",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs57",
+      "dayOfWeek": 3,
+      "slotId": 6,
+      "roomName": "B-101",
+      "subject": "Circuits",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs58",
+      "dayOfWeek": 3,
+      "slotId": 6,
+      "roomName": "A-108",
+      "subject": "Engineering Drawing",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs59",
+      "dayOfWeek": 3,
+      "slotId": 6,
+      "roomName": "B-102",
+      "subject": "Mechanics",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs60",
+      "dayOfWeek": 4,
+      "slotId": 1,
+      "roomName": "A-101",
+      "subject": "Mechanics",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs61",
+      "dayOfWeek": 4,
+      "slotId": 1,
+      "roomName": "A-103",
+      "subject": "Mechanics",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs62",
+      "dayOfWeek": 4,
+      "slotId": 1,
+      "roomName": "B-101",
+      "subject": "Mechanics",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs63",
+      "dayOfWeek": 4,
+      "slotId": 2,
+      "roomName": "A-102",
+      "subject": "Thermodynamics",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs64",
+      "dayOfWeek": 4,
+      "slotId": 2,
+      "roomName": "A-105",
+      "subject": "Circuits",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs65",
+      "dayOfWeek": 4,
+      "slotId": 2,
+      "roomName": "A-101",
+      "subject": "Circuits",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs66",
+      "dayOfWeek": 4,
+      "slotId": 3,
+      "roomName": "A-106",
+      "subject": "Thermodynamics",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs67",
+      "dayOfWeek": 4,
+      "slotId": 3,
+      "roomName": "A-104",
+      "subject": "Circuits",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs68",
+      "dayOfWeek": 4,
+      "slotId": 4,
+      "roomName": "B-101",
+      "subject": "Mathematics 101",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs69",
+      "dayOfWeek": 4,
+      "slotId": 4,
+      "roomName": "A-106",
+      "subject": "Mechanics",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs70",
+      "dayOfWeek": 4,
+      "slotId": 4,
+      "roomName": "B-102",
+      "subject": "Mechanics",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs71",
+      "dayOfWeek": 4,
+      "slotId": 5,
+      "roomName": "B-101",
+      "subject": "Circuits",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs72",
+      "dayOfWeek": 4,
+      "slotId": 5,
+      "roomName": "A-103",
+      "subject": "Thermodynamics",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs73",
+      "dayOfWeek": 4,
+      "slotId": 6,
+      "roomName": "A-102",
+      "subject": "Thermodynamics",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs74",
+      "dayOfWeek": 4,
+      "slotId": 6,
+      "roomName": "A-103",
+      "subject": "Engineering Drawing",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs75",
+      "dayOfWeek": 6,
+      "slotId": 1,
+      "roomName": "A-108",
+      "subject": "Mechanics",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs76",
+      "dayOfWeek": 6,
+      "slotId": 1,
+      "roomName": "A-102",
+      "subject": "Circuits",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs77",
+      "dayOfWeek": 6,
+      "slotId": 1,
+      "roomName": "B-101",
+      "subject": "Physics I",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs78",
+      "dayOfWeek": 6,
+      "slotId": 2,
+      "roomName": "A-107",
+      "subject": "Circuits",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs79",
+      "dayOfWeek": 6,
+      "slotId": 2,
+      "roomName": "A-106",
+      "subject": "Physics I",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs80",
+      "dayOfWeek": 6,
+      "slotId": 3,
+      "roomName": "B-101",
+      "subject": "Thermodynamics",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs81",
+      "dayOfWeek": 6,
+      "slotId": 3,
+      "roomName": "A-106",
+      "subject": "Thermodynamics",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs82",
+      "dayOfWeek": 6,
+      "slotId": 4,
+      "roomName": "A-103",
+      "subject": "Thermodynamics",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs83",
+      "dayOfWeek": 6,
+      "slotId": 4,
+      "roomName": "A-101",
+      "subject": "Physics I",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs84",
+      "dayOfWeek": 6,
+      "slotId": 5,
+      "roomName": "A-108",
+      "subject": "Circuits",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs85",
+      "dayOfWeek": 6,
+      "slotId": 5,
+      "roomName": "A-110",
+      "subject": "Mathematics 101",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs86",
+      "dayOfWeek": 6,
+      "slotId": 6,
+      "roomName": "A-104",
+      "subject": "Circuits",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs87",
+      "dayOfWeek": 6,
+      "slotId": 6,
+      "roomName": "A-110",
+      "subject": "Mathematics 101",
+      "college": "College of Engineering and Technology"
+    },
+    {
+      "id": "fs88",
+      "dayOfWeek": 0,
+      "slotId": 1,
+      "roomName": "B-104",
+      "subject": "Algorithms",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs89",
+      "dayOfWeek": 0,
+      "slotId": 1,
+      "roomName": "A-210",
+      "subject": "Data Structures",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs90",
+      "dayOfWeek": 0,
+      "slotId": 2,
+      "roomName": "A-207",
+      "subject": "Algorithms",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs91",
+      "dayOfWeek": 0,
+      "slotId": 2,
+      "roomName": "A-202",
+      "subject": "Operating Systems",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs92",
+      "dayOfWeek": 0,
+      "slotId": 2,
+      "roomName": "A-201",
+      "subject": "Operating Systems",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs93",
+      "dayOfWeek": 0,
+      "slotId": 3,
+      "roomName": "A-206",
+      "subject": "Data Structures",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs94",
+      "dayOfWeek": 0,
+      "slotId": 3,
+      "roomName": "A-201",
+      "subject": "Algorithms",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs95",
+      "dayOfWeek": 0,
+      "slotId": 4,
+      "roomName": "A-204",
+      "subject": "Programming I",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs96",
+      "dayOfWeek": 0,
+      "slotId": 4,
+      "roomName": "A-206",
+      "subject": "Algorithms",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs97",
+      "dayOfWeek": 0,
+      "slotId": 4,
+      "roomName": "A-210",
+      "subject": "Algorithms",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs98",
+      "dayOfWeek": 0,
+      "slotId": 5,
+      "roomName": "A-203",
+      "subject": "Programming I",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs99",
+      "dayOfWeek": 0,
+      "slotId": 5,
+      "roomName": "B-103",
+      "subject": "Database Systems",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs100",
+      "dayOfWeek": 0,
+      "slotId": 6,
+      "roomName": "A-203",
+      "subject": "Data Structures",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs101",
+      "dayOfWeek": 0,
+      "slotId": 6,
+      "roomName": "A-209",
+      "subject": "Programming I",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs102",
+      "dayOfWeek": 1,
+      "slotId": 1,
+      "roomName": "A-209",
+      "subject": "Operating Systems",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs103",
+      "dayOfWeek": 1,
+      "slotId": 1,
+      "roomName": "B-103",
+      "subject": "Networks",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs104",
+      "dayOfWeek": 1,
+      "slotId": 1,
+      "roomName": "B-104",
+      "subject": "Operating Systems",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs105",
+      "dayOfWeek": 1,
+      "slotId": 2,
+      "roomName": "A-203",
+      "subject": "Data Structures",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs106",
+      "dayOfWeek": 1,
+      "slotId": 2,
+      "roomName": "B-104",
+      "subject": "Operating Systems",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs107",
+      "dayOfWeek": 1,
+      "slotId": 3,
+      "roomName": "A-208",
+      "subject": "Database Systems",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs108",
+      "dayOfWeek": 1,
+      "slotId": 3,
+      "roomName": "A-203",
+      "subject": "Data Structures",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs109",
+      "dayOfWeek": 1,
+      "slotId": 3,
+      "roomName": "A-205",
+      "subject": "Operating Systems",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs110",
+      "dayOfWeek": 1,
+      "slotId": 4,
+      "roomName": "A-202",
+      "subject": "Data Structures",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs111",
+      "dayOfWeek": 1,
+      "slotId": 4,
+      "roomName": "A-204",
+      "subject": "Networks",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs112",
+      "dayOfWeek": 1,
+      "slotId": 4,
+      "roomName": "A-205",
+      "subject": "Operating Systems",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs113",
+      "dayOfWeek": 1,
+      "slotId": 5,
+      "roomName": "A-207",
+      "subject": "Operating Systems",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs114",
+      "dayOfWeek": 1,
+      "slotId": 5,
+      "roomName": "A-209",
+      "subject": "Data Structures",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs115",
+      "dayOfWeek": 1,
+      "slotId": 5,
+      "roomName": "B-104",
+      "subject": "Networks",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs116",
+      "dayOfWeek": 1,
+      "slotId": 6,
+      "roomName": "B-103",
+      "subject": "Data Structures",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs117",
+      "dayOfWeek": 1,
+      "slotId": 6,
+      "roomName": "A-210",
+      "subject": "Data Structures",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs118",
+      "dayOfWeek": 2,
+      "slotId": 1,
+      "roomName": "A-201",
+      "subject": "Programming I",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs119",
+      "dayOfWeek": 2,
+      "slotId": 1,
+      "roomName": "A-205",
+      "subject": "Database Systems",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs120",
+      "dayOfWeek": 2,
+      "slotId": 1,
+      "roomName": "A-210",
+      "subject": "Networks",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs121",
+      "dayOfWeek": 2,
+      "slotId": 2,
+      "roomName": "A-208",
+      "subject": "Networks",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs122",
+      "dayOfWeek": 2,
+      "slotId": 2,
+      "roomName": "A-207",
+      "subject": "Algorithms",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs123",
+      "dayOfWeek": 2,
+      "slotId": 2,
+      "roomName": "A-204",
+      "subject": "Programming I",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs124",
+      "dayOfWeek": 2,
+      "slotId": 3,
+      "roomName": "B-103",
+      "subject": "Operating Systems",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs125",
+      "dayOfWeek": 2,
+      "slotId": 3,
+      "roomName": "A-201",
+      "subject": "Operating Systems",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs126",
+      "dayOfWeek": 2,
+      "slotId": 4,
+      "roomName": "B-104",
+      "subject": "Networks",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs127",
+      "dayOfWeek": 2,
+      "slotId": 4,
+      "roomName": "A-201",
+      "subject": "Database Systems",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs128",
+      "dayOfWeek": 2,
+      "slotId": 5,
+      "roomName": "B-103",
+      "subject": "Programming I",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs129",
+      "dayOfWeek": 2,
+      "slotId": 5,
+      "roomName": "A-201",
+      "subject": "Operating Systems",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs130",
+      "dayOfWeek": 2,
+      "slotId": 6,
+      "roomName": "A-203",
+      "subject": "Networks",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs131",
+      "dayOfWeek": 2,
+      "slotId": 6,
+      "roomName": "A-205",
+      "subject": "Database Systems",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs132",
+      "dayOfWeek": 2,
+      "slotId": 6,
+      "roomName": "A-210",
+      "subject": "Algorithms",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs133",
+      "dayOfWeek": 3,
+      "slotId": 1,
+      "roomName": "A-205",
+      "subject": "Networks",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs134",
+      "dayOfWeek": 3,
+      "slotId": 1,
+      "roomName": "B-103",
+      "subject": "Algorithms",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs135",
+      "dayOfWeek": 3,
+      "slotId": 1,
+      "roomName": "A-201",
+      "subject": "Operating Systems",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs136",
+      "dayOfWeek": 3,
+      "slotId": 2,
+      "roomName": "A-209",
+      "subject": "Networks",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs137",
+      "dayOfWeek": 3,
+      "slotId": 2,
+      "roomName": "A-208",
+      "subject": "Algorithms",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs138",
+      "dayOfWeek": 3,
+      "slotId": 2,
+      "roomName": "A-202",
+      "subject": "Data Structures",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs139",
+      "dayOfWeek": 3,
+      "slotId": 3,
+      "roomName": "A-207",
+      "subject": "Networks",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs140",
+      "dayOfWeek": 3,
+      "slotId": 3,
+      "roomName": "A-202",
+      "subject": "Operating Systems",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs141",
+      "dayOfWeek": 3,
+      "slotId": 3,
+      "roomName": "A-206",
+      "subject": "Algorithms",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs142",
+      "dayOfWeek": 3,
+      "slotId": 4,
+      "roomName": "A-202",
+      "subject": "Networks",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs143",
+      "dayOfWeek": 3,
+      "slotId": 4,
+      "roomName": "B-104",
+      "subject": "Operating Systems",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs144",
+      "dayOfWeek": 3,
+      "slotId": 4,
+      "roomName": "A-206",
+      "subject": "Database Systems",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs145",
+      "dayOfWeek": 3,
+      "slotId": 5,
+      "roomName": "B-103",
+      "subject": "Database Systems",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs146",
+      "dayOfWeek": 3,
+      "slotId": 5,
+      "roomName": "A-206",
+      "subject": "Data Structures",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs147",
+      "dayOfWeek": 3,
+      "slotId": 5,
+      "roomName": "A-209",
+      "subject": "Database Systems",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs148",
+      "dayOfWeek": 3,
+      "slotId": 6,
+      "roomName": "B-104",
+      "subject": "Database Systems",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs149",
+      "dayOfWeek": 3,
+      "slotId": 6,
+      "roomName": "A-209",
+      "subject": "Algorithms",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs150",
+      "dayOfWeek": 3,
+      "slotId": 6,
+      "roomName": "A-201",
+      "subject": "Programming I",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs151",
+      "dayOfWeek": 4,
+      "slotId": 1,
+      "roomName": "A-203",
+      "subject": "Programming I",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs152",
+      "dayOfWeek": 4,
+      "slotId": 1,
+      "roomName": "A-205",
+      "subject": "Networks",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs153",
+      "dayOfWeek": 4,
+      "slotId": 1,
+      "roomName": "A-210",
+      "subject": "Algorithms",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs154",
+      "dayOfWeek": 4,
+      "slotId": 2,
+      "roomName": "A-206",
+      "subject": "Operating Systems",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs155",
+      "dayOfWeek": 4,
+      "slotId": 2,
+      "roomName": "A-201",
+      "subject": "Algorithms",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs156",
+      "dayOfWeek": 4,
+      "slotId": 3,
+      "roomName": "A-208",
+      "subject": "Networks",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs157",
+      "dayOfWeek": 4,
+      "slotId": 3,
+      "roomName": "A-205",
+      "subject": "Networks",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs158",
+      "dayOfWeek": 4,
+      "slotId": 4,
+      "roomName": "A-204",
+      "subject": "Algorithms",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs159",
+      "dayOfWeek": 4,
+      "slotId": 4,
+      "roomName": "A-201",
+      "subject": "Algorithms",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs160",
+      "dayOfWeek": 4,
+      "slotId": 5,
+      "roomName": "A-204",
+      "subject": "Networks",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs161",
+      "dayOfWeek": 4,
+      "slotId": 5,
+      "roomName": "B-104",
+      "subject": "Networks",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs162",
+      "dayOfWeek": 4,
+      "slotId": 5,
+      "roomName": "A-209",
+      "subject": "Operating Systems",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs163",
+      "dayOfWeek": 4,
+      "slotId": 6,
+      "roomName": "A-202",
+      "subject": "Operating Systems",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs164",
+      "dayOfWeek": 4,
+      "slotId": 6,
+      "roomName": "B-103",
+      "subject": "Operating Systems",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs165",
+      "dayOfWeek": 6,
+      "slotId": 1,
+      "roomName": "B-103",
+      "subject": "Algorithms",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs166",
+      "dayOfWeek": 6,
+      "slotId": 1,
+      "roomName": "A-201",
+      "subject": "Networks",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs167",
+      "dayOfWeek": 6,
+      "slotId": 2,
+      "roomName": "A-201",
+      "subject": "Algorithms",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs168",
+      "dayOfWeek": 6,
+      "slotId": 3,
+      "roomName": "B-104",
+      "subject": "Database Systems",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs169",
+      "dayOfWeek": 6,
+      "slotId": 3,
+      "roomName": "A-203",
+      "subject": "Database Systems",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs170",
+      "dayOfWeek": 6,
+      "slotId": 3,
+      "roomName": "A-201",
+      "subject": "Algorithms",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs171",
+      "dayOfWeek": 6,
+      "slotId": 4,
+      "roomName": "A-202",
+      "subject": "Programming I",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs172",
+      "dayOfWeek": 6,
+      "slotId": 4,
+      "roomName": "B-103",
+      "subject": "Data Structures",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs173",
+      "dayOfWeek": 6,
+      "slotId": 4,
+      "roomName": "B-104",
+      "subject": "Programming I",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs174",
+      "dayOfWeek": 6,
+      "slotId": 5,
+      "roomName": "A-209",
+      "subject": "Programming I",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs175",
+      "dayOfWeek": 6,
+      "slotId": 5,
+      "roomName": "A-207",
+      "subject": "Operating Systems",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs176",
+      "dayOfWeek": 6,
+      "slotId": 5,
+      "roomName": "A-206",
+      "subject": "Networks",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs177",
+      "dayOfWeek": 6,
+      "slotId": 6,
+      "roomName": "A-201",
+      "subject": "Programming I",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs178",
+      "dayOfWeek": 6,
+      "slotId": 6,
+      "roomName": "B-103",
+      "subject": "Networks",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs179",
+      "dayOfWeek": 6,
+      "slotId": 6,
+      "roomName": "A-206",
+      "subject": "Algorithms",
+      "college": "College of Computing and Information Technology"
+    },
+    {
+      "id": "fs180",
+      "dayOfWeek": 0,
+      "slotId": 1,
+      "roomName": "A-304",
+      "subject": "Finance",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs181",
+      "dayOfWeek": 0,
+      "slotId": 1,
+      "roomName": "B-106",
+      "subject": "Finance",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs182",
+      "dayOfWeek": 0,
+      "slotId": 2,
+      "roomName": "A-308",
+      "subject": "HR Management",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs183",
+      "dayOfWeek": 0,
+      "slotId": 2,
+      "roomName": "A-305",
+      "subject": "Marketing",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs184",
+      "dayOfWeek": 0,
+      "slotId": 3,
+      "roomName": "A-308",
+      "subject": "Accounting I",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs185",
+      "dayOfWeek": 0,
+      "slotId": 3,
+      "roomName": "A-307",
+      "subject": "Economics",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs186",
+      "dayOfWeek": 0,
+      "slotId": 3,
+      "roomName": "A-302",
+      "subject": "Finance",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs187",
+      "dayOfWeek": 0,
+      "slotId": 4,
+      "roomName": "A-305",
+      "subject": "Management Principles",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs188",
+      "dayOfWeek": 0,
+      "slotId": 4,
+      "roomName": "B-106",
+      "subject": "Marketing",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs189",
+      "dayOfWeek": 0,
+      "slotId": 5,
+      "roomName": "A-301",
+      "subject": "Economics",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs190",
+      "dayOfWeek": 0,
+      "slotId": 5,
+      "roomName": "A-305",
+      "subject": "Marketing",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs191",
+      "dayOfWeek": 0,
+      "slotId": 5,
+      "roomName": "B-106",
+      "subject": "Economics",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs192",
+      "dayOfWeek": 0,
+      "slotId": 6,
+      "roomName": "A-304",
+      "subject": "Management Principles",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs193",
+      "dayOfWeek": 0,
+      "slotId": 6,
+      "roomName": "A-308",
+      "subject": "Economics",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs194",
+      "dayOfWeek": 1,
+      "slotId": 1,
+      "roomName": "A-307",
+      "subject": "Management Principles",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs195",
+      "dayOfWeek": 1,
+      "slotId": 1,
+      "roomName": "A-301",
+      "subject": "HR Management",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs196",
+      "dayOfWeek": 1,
+      "slotId": 2,
+      "roomName": "A-303",
+      "subject": "Management Principles",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs197",
+      "dayOfWeek": 1,
+      "slotId": 2,
+      "roomName": "B-105",
+      "subject": "HR Management",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs198",
+      "dayOfWeek": 1,
+      "slotId": 3,
+      "roomName": "A-308",
+      "subject": "HR Management",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs199",
+      "dayOfWeek": 1,
+      "slotId": 3,
+      "roomName": "A-307",
+      "subject": "Economics",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs200",
+      "dayOfWeek": 1,
+      "slotId": 3,
+      "roomName": "A-305",
+      "subject": "Accounting I",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs201",
+      "dayOfWeek": 1,
+      "slotId": 4,
+      "roomName": "A-301",
+      "subject": "HR Management",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs202",
+      "dayOfWeek": 1,
+      "slotId": 4,
+      "roomName": "A-305",
+      "subject": "HR Management",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs203",
+      "dayOfWeek": 1,
+      "slotId": 5,
+      "roomName": "A-304",
+      "subject": "HR Management",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs204",
+      "dayOfWeek": 1,
+      "slotId": 5,
+      "roomName": "B-105",
+      "subject": "Marketing",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs205",
+      "dayOfWeek": 1,
+      "slotId": 6,
+      "roomName": "A-306",
+      "subject": "Management Principles",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs206",
+      "dayOfWeek": 1,
+      "slotId": 6,
+      "roomName": "A-307",
+      "subject": "HR Management",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs207",
+      "dayOfWeek": 2,
+      "slotId": 1,
+      "roomName": "A-302",
+      "subject": "Finance",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs208",
+      "dayOfWeek": 2,
+      "slotId": 1,
+      "roomName": "A-301",
+      "subject": "Marketing",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs209",
+      "dayOfWeek": 2,
+      "slotId": 1,
+      "roomName": "A-308",
+      "subject": "Management Principles",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs210",
+      "dayOfWeek": 2,
+      "slotId": 2,
+      "roomName": "B-106",
+      "subject": "Finance",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs211",
+      "dayOfWeek": 2,
+      "slotId": 2,
+      "roomName": "A-310",
+      "subject": "HR Management",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs212",
+      "dayOfWeek": 2,
+      "slotId": 3,
+      "roomName": "A-303",
+      "subject": "Management Principles",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs213",
+      "dayOfWeek": 2,
+      "slotId": 3,
+      "roomName": "B-105",
+      "subject": "Accounting I",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs214",
+      "dayOfWeek": 2,
+      "slotId": 4,
+      "roomName": "A-308",
+      "subject": "Accounting I",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs215",
+      "dayOfWeek": 2,
+      "slotId": 4,
+      "roomName": "A-309",
+      "subject": "Economics",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs216",
+      "dayOfWeek": 2,
+      "slotId": 5,
+      "roomName": "A-310",
+      "subject": "Marketing",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs217",
+      "dayOfWeek": 2,
+      "slotId": 5,
+      "roomName": "A-308",
+      "subject": "Management Principles",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs218",
+      "dayOfWeek": 2,
+      "slotId": 6,
+      "roomName": "A-302",
+      "subject": "Accounting I",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs219",
+      "dayOfWeek": 2,
+      "slotId": 6,
+      "roomName": "A-303",
+      "subject": "Management Principles",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs220",
+      "dayOfWeek": 3,
+      "slotId": 1,
+      "roomName": "A-303",
+      "subject": "HR Management",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs221",
+      "dayOfWeek": 3,
+      "slotId": 1,
+      "roomName": "A-306",
+      "subject": "Accounting I",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs222",
+      "dayOfWeek": 3,
+      "slotId": 2,
+      "roomName": "A-304",
+      "subject": "Marketing",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs223",
+      "dayOfWeek": 3,
+      "slotId": 2,
+      "roomName": "A-301",
+      "subject": "Management Principles",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs224",
+      "dayOfWeek": 3,
+      "slotId": 2,
+      "roomName": "B-106",
+      "subject": "Finance",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs225",
+      "dayOfWeek": 3,
+      "slotId": 3,
+      "roomName": "A-306",
+      "subject": "Marketing",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs226",
+      "dayOfWeek": 3,
+      "slotId": 3,
+      "roomName": "A-305",
+      "subject": "Finance",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs227",
+      "dayOfWeek": 3,
+      "slotId": 4,
+      "roomName": "B-105",
+      "subject": "Economics",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs228",
+      "dayOfWeek": 3,
+      "slotId": 4,
+      "roomName": "A-304",
+      "subject": "Management Principles",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs229",
+      "dayOfWeek": 3,
+      "slotId": 5,
+      "roomName": "A-304",
+      "subject": "HR Management",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs230",
+      "dayOfWeek": 3,
+      "slotId": 5,
+      "roomName": "A-303",
+      "subject": "Economics",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs231",
+      "dayOfWeek": 3,
+      "slotId": 6,
+      "roomName": "A-301",
+      "subject": "Marketing",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs232",
+      "dayOfWeek": 3,
+      "slotId": 6,
+      "roomName": "B-105",
+      "subject": "Finance",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs233",
+      "dayOfWeek": 4,
+      "slotId": 1,
+      "roomName": "A-305",
+      "subject": "Finance",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs234",
+      "dayOfWeek": 4,
+      "slotId": 1,
+      "roomName": "A-309",
+      "subject": "HR Management",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs235",
+      "dayOfWeek": 4,
+      "slotId": 1,
+      "roomName": "A-304",
+      "subject": "Marketing",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs236",
+      "dayOfWeek": 4,
+      "slotId": 2,
+      "roomName": "A-303",
+      "subject": "Management Principles",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs237",
+      "dayOfWeek": 4,
+      "slotId": 3,
+      "roomName": "A-308",
+      "subject": "Finance",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs238",
+      "dayOfWeek": 4,
+      "slotId": 3,
+      "roomName": "A-309",
+      "subject": "Finance",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs239",
+      "dayOfWeek": 4,
+      "slotId": 3,
+      "roomName": "B-105",
+      "subject": "Economics",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs240",
+      "dayOfWeek": 4,
+      "slotId": 4,
+      "roomName": "A-302",
+      "subject": "Management Principles",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs241",
+      "dayOfWeek": 4,
+      "slotId": 4,
+      "roomName": "A-304",
+      "subject": "Management Principles",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs242",
+      "dayOfWeek": 4,
+      "slotId": 4,
+      "roomName": "A-303",
+      "subject": "Marketing",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs243",
+      "dayOfWeek": 4,
+      "slotId": 5,
+      "roomName": "B-106",
+      "subject": "Economics",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs244",
+      "dayOfWeek": 4,
+      "slotId": 5,
+      "roomName": "A-305",
+      "subject": "Management Principles",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs245",
+      "dayOfWeek": 4,
+      "slotId": 5,
+      "roomName": "A-306",
+      "subject": "Management Principles",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs246",
+      "dayOfWeek": 4,
+      "slotId": 6,
+      "roomName": "A-301",
+      "subject": "Marketing",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs247",
+      "dayOfWeek": 4,
+      "slotId": 6,
+      "roomName": "A-307",
+      "subject": "HR Management",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs248",
+      "dayOfWeek": 6,
+      "slotId": 1,
+      "roomName": "A-310",
+      "subject": "HR Management",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs249",
+      "dayOfWeek": 6,
+      "slotId": 1,
+      "roomName": "A-307",
+      "subject": "HR Management",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs250",
+      "dayOfWeek": 6,
+      "slotId": 2,
+      "roomName": "A-306",
+      "subject": "HR Management",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs251",
+      "dayOfWeek": 6,
+      "slotId": 2,
+      "roomName": "A-310",
+      "subject": "Economics",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs252",
+      "dayOfWeek": 6,
+      "slotId": 2,
+      "roomName": "B-106",
+      "subject": "Management Principles",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs253",
+      "dayOfWeek": 6,
+      "slotId": 3,
+      "roomName": "B-105",
+      "subject": "Economics",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs254",
+      "dayOfWeek": 6,
+      "slotId": 4,
+      "roomName": "A-304",
+      "subject": "Accounting I",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs255",
+      "dayOfWeek": 6,
+      "slotId": 4,
+      "roomName": "A-301",
+      "subject": "Accounting I",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs256",
+      "dayOfWeek": 6,
+      "slotId": 4,
+      "roomName": "A-307",
+      "subject": "Marketing",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs257",
+      "dayOfWeek": 6,
+      "slotId": 5,
+      "roomName": "A-303",
+      "subject": "Marketing",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs258",
+      "dayOfWeek": 6,
+      "slotId": 5,
+      "roomName": "A-309",
+      "subject": "Economics",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs259",
+      "dayOfWeek": 6,
+      "slotId": 5,
+      "roomName": "A-306",
+      "subject": "Finance",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs260",
+      "dayOfWeek": 6,
+      "slotId": 6,
+      "roomName": "A-301",
+      "subject": "Accounting I",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs261",
+      "dayOfWeek": 6,
+      "slotId": 6,
+      "roomName": "B-105",
+      "subject": "HR Management",
+      "college": "College of Management and Technology"
+    },
+    {
+      "id": "fs262",
+      "dayOfWeek": 0,
+      "slotId": 1,
+      "roomName": "A-406",
+      "subject": "Transport Systems",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs263",
+      "dayOfWeek": 0,
+      "slotId": 1,
+      "roomName": "B-108",
+      "subject": "Transport Systems",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs264",
+      "dayOfWeek": 0,
+      "slotId": 2,
+      "roomName": "B-107",
+      "subject": "Supply Chain",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs265",
+      "dayOfWeek": 0,
+      "slotId": 2,
+      "roomName": "A-410",
+      "subject": "Warehousing",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs266",
+      "dayOfWeek": 0,
+      "slotId": 3,
+      "roomName": "A-406",
+      "subject": "Warehousing",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs267",
+      "dayOfWeek": 0,
+      "slotId": 3,
+      "roomName": "A-401",
+      "subject": "Supply Chain",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs268",
+      "dayOfWeek": 0,
+      "slotId": 4,
+      "roomName": "A-409",
+      "subject": "Logistics Mgmt",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs269",
+      "dayOfWeek": 0,
+      "slotId": 4,
+      "roomName": "A-406",
+      "subject": "Transport Systems",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs270",
+      "dayOfWeek": 0,
+      "slotId": 5,
+      "roomName": "A-404",
+      "subject": "Logistics Mgmt",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs271",
+      "dayOfWeek": 0,
+      "slotId": 5,
+      "roomName": "A-403",
+      "subject": "Warehousing",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs272",
+      "dayOfWeek": 0,
+      "slotId": 6,
+      "roomName": "A-401",
+      "subject": "Supply Chain",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs273",
+      "dayOfWeek": 0,
+      "slotId": 6,
+      "roomName": "A-410",
+      "subject": "Transport Systems",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs274",
+      "dayOfWeek": 1,
+      "slotId": 1,
+      "roomName": "A-410",
+      "subject": "Warehousing",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs275",
+      "dayOfWeek": 1,
+      "slotId": 1,
+      "roomName": "A-401",
+      "subject": "Logistics Mgmt",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs276",
+      "dayOfWeek": 1,
+      "slotId": 1,
+      "roomName": "A-406",
+      "subject": "Transport Systems",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs277",
+      "dayOfWeek": 1,
+      "slotId": 2,
+      "roomName": "A-404",
+      "subject": "Transport Systems",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs278",
+      "dayOfWeek": 1,
+      "slotId": 2,
+      "roomName": "A-410",
+      "subject": "Supply Chain",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs279",
+      "dayOfWeek": 1,
+      "slotId": 3,
+      "roomName": "A-402",
+      "subject": "Customs",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs280",
+      "dayOfWeek": 1,
+      "slotId": 3,
+      "roomName": "A-405",
+      "subject": "Maritime Law",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs281",
+      "dayOfWeek": 1,
+      "slotId": 3,
+      "roomName": "A-401",
+      "subject": "Transport Systems",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs282",
+      "dayOfWeek": 1,
+      "slotId": 4,
+      "roomName": "A-410",
+      "subject": "Customs",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs283",
+      "dayOfWeek": 1,
+      "slotId": 4,
+      "roomName": "A-403",
+      "subject": "Customs",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs284",
+      "dayOfWeek": 1,
+      "slotId": 5,
+      "roomName": "A-410",
+      "subject": "Transport Systems",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs285",
+      "dayOfWeek": 1,
+      "slotId": 5,
+      "roomName": "B-108",
+      "subject": "Supply Chain",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs286",
+      "dayOfWeek": 1,
+      "slotId": 6,
+      "roomName": "A-404",
+      "subject": "Transport Systems",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs287",
+      "dayOfWeek": 1,
+      "slotId": 6,
+      "roomName": "A-407",
+      "subject": "Transport Systems",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs288",
+      "dayOfWeek": 1,
+      "slotId": 6,
+      "roomName": "A-403",
+      "subject": "Customs",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs289",
+      "dayOfWeek": 2,
+      "slotId": 1,
+      "roomName": "A-409",
+      "subject": "Supply Chain",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs290",
+      "dayOfWeek": 2,
+      "slotId": 1,
+      "roomName": "A-408",
+      "subject": "Maritime Law",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs291",
+      "dayOfWeek": 2,
+      "slotId": 2,
+      "roomName": "A-405",
+      "subject": "Logistics Mgmt",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs292",
+      "dayOfWeek": 2,
+      "slotId": 2,
+      "roomName": "A-403",
+      "subject": "Transport Systems",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs293",
+      "dayOfWeek": 2,
+      "slotId": 2,
+      "roomName": "A-410",
+      "subject": "Maritime Law",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs294",
+      "dayOfWeek": 2,
+      "slotId": 3,
+      "roomName": "A-408",
+      "subject": "Transport Systems",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs295",
+      "dayOfWeek": 2,
+      "slotId": 3,
+      "roomName": "A-407",
+      "subject": "Maritime Law",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs296",
+      "dayOfWeek": 2,
+      "slotId": 3,
+      "roomName": "A-406",
+      "subject": "Maritime Law",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs297",
+      "dayOfWeek": 2,
+      "slotId": 4,
+      "roomName": "A-409",
+      "subject": "Maritime Law",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs298",
+      "dayOfWeek": 2,
+      "slotId": 4,
+      "roomName": "A-403",
+      "subject": "Transport Systems",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs299",
+      "dayOfWeek": 2,
+      "slotId": 4,
+      "roomName": "A-405",
+      "subject": "Customs",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs300",
+      "dayOfWeek": 2,
+      "slotId": 5,
+      "roomName": "A-410",
+      "subject": "Warehousing",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs301",
+      "dayOfWeek": 2,
+      "slotId": 5,
+      "roomName": "A-408",
+      "subject": "Supply Chain",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs302",
+      "dayOfWeek": 2,
+      "slotId": 5,
+      "roomName": "A-409",
+      "subject": "Supply Chain",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs303",
+      "dayOfWeek": 2,
+      "slotId": 6,
+      "roomName": "A-404",
+      "subject": "Supply Chain",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs304",
+      "dayOfWeek": 2,
+      "slotId": 6,
+      "roomName": "A-408",
+      "subject": "Logistics Mgmt",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs305",
+      "dayOfWeek": 3,
+      "slotId": 1,
+      "roomName": "A-405",
+      "subject": "Supply Chain",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs306",
+      "dayOfWeek": 3,
+      "slotId": 1,
+      "roomName": "A-407",
+      "subject": "Transport Systems",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs307",
+      "dayOfWeek": 3,
+      "slotId": 1,
+      "roomName": "A-410",
+      "subject": "Transport Systems",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs308",
+      "dayOfWeek": 3,
+      "slotId": 2,
+      "roomName": "B-108",
+      "subject": "Maritime Law",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs309",
+      "dayOfWeek": 3,
+      "slotId": 3,
+      "roomName": "A-406",
+      "subject": "Supply Chain",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs310",
+      "dayOfWeek": 3,
+      "slotId": 4,
+      "roomName": "A-408",
+      "subject": "Maritime Law",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs311",
+      "dayOfWeek": 3,
+      "slotId": 5,
+      "roomName": "A-409",
+      "subject": "Customs",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs312",
+      "dayOfWeek": 3,
+      "slotId": 6,
+      "roomName": "A-409",
+      "subject": "Customs",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs313",
+      "dayOfWeek": 3,
+      "slotId": 6,
+      "roomName": "A-402",
+      "subject": "Transport Systems",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs314",
+      "dayOfWeek": 3,
+      "slotId": 6,
+      "roomName": "A-404",
+      "subject": "Supply Chain",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs315",
+      "dayOfWeek": 4,
+      "slotId": 1,
+      "roomName": "A-402",
+      "subject": "Warehousing",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs316",
+      "dayOfWeek": 4,
+      "slotId": 1,
+      "roomName": "B-108",
+      "subject": "Maritime Law",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs317",
+      "dayOfWeek": 4,
+      "slotId": 2,
+      "roomName": "B-108",
+      "subject": "Supply Chain",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs318",
+      "dayOfWeek": 4,
+      "slotId": 2,
+      "roomName": "A-404",
+      "subject": "Warehousing",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs319",
+      "dayOfWeek": 4,
+      "slotId": 3,
+      "roomName": "B-107",
+      "subject": "Transport Systems",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs320",
+      "dayOfWeek": 4,
+      "slotId": 3,
+      "roomName": "A-401",
+      "subject": "Supply Chain",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs321",
+      "dayOfWeek": 4,
+      "slotId": 3,
+      "roomName": "A-402",
+      "subject": "Maritime Law",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs322",
+      "dayOfWeek": 4,
+      "slotId": 4,
+      "roomName": "A-408",
+      "subject": "Logistics Mgmt",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs323",
+      "dayOfWeek": 4,
+      "slotId": 4,
+      "roomName": "A-403",
+      "subject": "Supply Chain",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs324",
+      "dayOfWeek": 4,
+      "slotId": 5,
+      "roomName": "A-409",
+      "subject": "Warehousing",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs325",
+      "dayOfWeek": 4,
+      "slotId": 5,
+      "roomName": "A-406",
+      "subject": "Logistics Mgmt",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs326",
+      "dayOfWeek": 4,
+      "slotId": 6,
+      "roomName": "A-404",
+      "subject": "Customs",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs327",
+      "dayOfWeek": 4,
+      "slotId": 6,
+      "roomName": "A-405",
+      "subject": "Transport Systems",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs328",
+      "dayOfWeek": 6,
+      "slotId": 1,
+      "roomName": "A-408",
+      "subject": "Transport Systems",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs329",
+      "dayOfWeek": 6,
+      "slotId": 1,
+      "roomName": "A-407",
+      "subject": "Maritime Law",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs330",
+      "dayOfWeek": 6,
+      "slotId": 2,
+      "roomName": "A-406",
+      "subject": "Supply Chain",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs331",
+      "dayOfWeek": 6,
+      "slotId": 2,
+      "roomName": "A-402",
+      "subject": "Customs",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs332",
+      "dayOfWeek": 6,
+      "slotId": 3,
+      "roomName": "A-405",
+      "subject": "Supply Chain",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs333",
+      "dayOfWeek": 6,
+      "slotId": 3,
+      "roomName": "A-403",
+      "subject": "Logistics Mgmt",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs334",
+      "dayOfWeek": 6,
+      "slotId": 4,
+      "roomName": "A-405",
+      "subject": "Customs",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs335",
+      "dayOfWeek": 6,
+      "slotId": 4,
+      "roomName": "B-107",
+      "subject": "Supply Chain",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs336",
+      "dayOfWeek": 6,
+      "slotId": 4,
+      "roomName": "A-406",
+      "subject": "Warehousing",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs337",
+      "dayOfWeek": 6,
+      "slotId": 5,
+      "roomName": "A-408",
+      "subject": "Maritime Law",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs338",
+      "dayOfWeek": 6,
+      "slotId": 5,
+      "roomName": "A-401",
+      "subject": "Transport Systems",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs339",
+      "dayOfWeek": 6,
+      "slotId": 5,
+      "roomName": "A-409",
+      "subject": "Supply Chain",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs340",
+      "dayOfWeek": 6,
+      "slotId": 6,
+      "roomName": "A-403",
+      "subject": "Supply Chain",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs341",
+      "dayOfWeek": 6,
+      "slotId": 6,
+      "roomName": "B-108",
+      "subject": "Logistics Mgmt",
+      "college": "College of International Transport and Logistics"
+    },
+    {
+      "id": "fs342",
+      "dayOfWeek": 0,
+      "slotId": 1,
+      "roomName": "A-502",
+      "subject": "Artifacts",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs343",
+      "dayOfWeek": 0,
+      "slotId": 1,
+      "roomName": "B-110",
+      "subject": "Artifacts",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs344",
+      "dayOfWeek": 0,
+      "slotId": 1,
+      "roomName": "A-508",
+      "subject": "Museum Studies",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs345",
+      "dayOfWeek": 0,
+      "slotId": 2,
+      "roomName": "B-109",
+      "subject": "Excavation Tech",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs346",
+      "dayOfWeek": 0,
+      "slotId": 3,
+      "roomName": "A-509",
+      "subject": "Ancient History",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs347",
+      "dayOfWeek": 0,
+      "slotId": 3,
+      "roomName": "A-508",
+      "subject": "Heritage Conservation",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs348",
+      "dayOfWeek": 0,
+      "slotId": 4,
+      "roomName": "A-510",
+      "subject": "Ancient History",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs349",
+      "dayOfWeek": 0,
+      "slotId": 4,
+      "roomName": "A-505",
+      "subject": "Heritage Conservation",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs350",
+      "dayOfWeek": 0,
+      "slotId": 5,
+      "roomName": "A-510",
+      "subject": "Heritage Conservation",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs351",
+      "dayOfWeek": 0,
+      "slotId": 5,
+      "roomName": "B-110",
+      "subject": "Ancient History",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs352",
+      "dayOfWeek": 0,
+      "slotId": 5,
+      "roomName": "A-505",
+      "subject": "Excavation Tech",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs353",
+      "dayOfWeek": 0,
+      "slotId": 6,
+      "roomName": "B-110",
+      "subject": "Ancient History",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs354",
+      "dayOfWeek": 1,
+      "slotId": 1,
+      "roomName": "A-502",
+      "subject": "Excavation Tech",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs355",
+      "dayOfWeek": 1,
+      "slotId": 1,
+      "roomName": "A-501",
+      "subject": "Artifacts",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs356",
+      "dayOfWeek": 1,
+      "slotId": 1,
+      "roomName": "A-506",
+      "subject": "Egyptology",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs357",
+      "dayOfWeek": 1,
+      "slotId": 2,
+      "roomName": "B-109",
+      "subject": "Artifacts",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs358",
+      "dayOfWeek": 1,
+      "slotId": 2,
+      "roomName": "A-505",
+      "subject": "Heritage Conservation",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs359",
+      "dayOfWeek": 1,
+      "slotId": 3,
+      "roomName": "A-502",
+      "subject": "Artifacts",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs360",
+      "dayOfWeek": 1,
+      "slotId": 3,
+      "roomName": "B-109",
+      "subject": "Ancient History",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs361",
+      "dayOfWeek": 1,
+      "slotId": 4,
+      "roomName": "A-508",
+      "subject": "Artifacts",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs362",
+      "dayOfWeek": 1,
+      "slotId": 4,
+      "roomName": "A-509",
+      "subject": "Museum Studies",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs363",
+      "dayOfWeek": 1,
+      "slotId": 5,
+      "roomName": "A-503",
+      "subject": "Excavation Tech",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs364",
+      "dayOfWeek": 1,
+      "slotId": 5,
+      "roomName": "B-109",
+      "subject": "Artifacts",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs365",
+      "dayOfWeek": 1,
+      "slotId": 5,
+      "roomName": "A-502",
+      "subject": "Artifacts",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs366",
+      "dayOfWeek": 1,
+      "slotId": 6,
+      "roomName": "B-110",
+      "subject": "Excavation Tech",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs367",
+      "dayOfWeek": 1,
+      "slotId": 6,
+      "roomName": "A-504",
+      "subject": "Ancient History",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs368",
+      "dayOfWeek": 2,
+      "slotId": 1,
+      "roomName": "A-506",
+      "subject": "Egyptology",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs369",
+      "dayOfWeek": 2,
+      "slotId": 1,
+      "roomName": "A-508",
+      "subject": "Heritage Conservation",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs370",
+      "dayOfWeek": 2,
+      "slotId": 2,
+      "roomName": "A-510",
+      "subject": "Museum Studies",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs371",
+      "dayOfWeek": 2,
+      "slotId": 2,
+      "roomName": "A-508",
+      "subject": "Excavation Tech",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs372",
+      "dayOfWeek": 2,
+      "slotId": 3,
+      "roomName": "A-504",
+      "subject": "Egyptology",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs373",
+      "dayOfWeek": 2,
+      "slotId": 3,
+      "roomName": "B-110",
+      "subject": "Ancient History",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs374",
+      "dayOfWeek": 2,
+      "slotId": 4,
+      "roomName": "A-510",
+      "subject": "Heritage Conservation",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs375",
+      "dayOfWeek": 2,
+      "slotId": 4,
+      "roomName": "B-109",
+      "subject": "Museum Studies",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs376",
+      "dayOfWeek": 2,
+      "slotId": 5,
+      "roomName": "A-505",
+      "subject": "Excavation Tech",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs377",
+      "dayOfWeek": 2,
+      "slotId": 5,
+      "roomName": "A-502",
+      "subject": "Heritage Conservation",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs378",
+      "dayOfWeek": 2,
+      "slotId": 6,
+      "roomName": "A-509",
+      "subject": "Artifacts",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs379",
+      "dayOfWeek": 2,
+      "slotId": 6,
+      "roomName": "A-501",
+      "subject": "Excavation Tech",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs380",
+      "dayOfWeek": 2,
+      "slotId": 6,
+      "roomName": "A-510",
+      "subject": "Artifacts",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs381",
+      "dayOfWeek": 3,
+      "slotId": 1,
+      "roomName": "A-509",
+      "subject": "Heritage Conservation",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs382",
+      "dayOfWeek": 3,
+      "slotId": 1,
+      "roomName": "A-504",
+      "subject": "Excavation Tech",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs383",
+      "dayOfWeek": 3,
+      "slotId": 2,
+      "roomName": "A-508",
+      "subject": "Artifacts",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs384",
+      "dayOfWeek": 3,
+      "slotId": 2,
+      "roomName": "A-506",
+      "subject": "Ancient History",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs385",
+      "dayOfWeek": 3,
+      "slotId": 2,
+      "roomName": "A-509",
+      "subject": "Heritage Conservation",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs386",
+      "dayOfWeek": 3,
+      "slotId": 3,
+      "roomName": "A-504",
+      "subject": "Excavation Tech",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs387",
+      "dayOfWeek": 3,
+      "slotId": 3,
+      "roomName": "A-503",
+      "subject": "Excavation Tech",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs388",
+      "dayOfWeek": 3,
+      "slotId": 3,
+      "roomName": "A-507",
+      "subject": "Excavation Tech",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs389",
+      "dayOfWeek": 3,
+      "slotId": 4,
+      "roomName": "B-110",
+      "subject": "Ancient History",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs390",
+      "dayOfWeek": 3,
+      "slotId": 4,
+      "roomName": "A-507",
+      "subject": "Museum Studies",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs391",
+      "dayOfWeek": 3,
+      "slotId": 5,
+      "roomName": "A-508",
+      "subject": "Artifacts",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs392",
+      "dayOfWeek": 3,
+      "slotId": 6,
+      "roomName": "A-510",
+      "subject": "Artifacts",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs393",
+      "dayOfWeek": 3,
+      "slotId": 6,
+      "roomName": "A-508",
+      "subject": "Egyptology",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs394",
+      "dayOfWeek": 4,
+      "slotId": 1,
+      "roomName": "A-506",
+      "subject": "Museum Studies",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs395",
+      "dayOfWeek": 4,
+      "slotId": 1,
+      "roomName": "A-507",
+      "subject": "Heritage Conservation",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs396",
+      "dayOfWeek": 4,
+      "slotId": 2,
+      "roomName": "A-504",
+      "subject": "Excavation Tech",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs397",
+      "dayOfWeek": 4,
+      "slotId": 2,
+      "roomName": "A-508",
+      "subject": "Ancient History",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs398",
+      "dayOfWeek": 4,
+      "slotId": 3,
+      "roomName": "A-508",
+      "subject": "Artifacts",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs399",
+      "dayOfWeek": 4,
+      "slotId": 3,
+      "roomName": "A-507",
+      "subject": "Ancient History",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs400",
+      "dayOfWeek": 4,
+      "slotId": 3,
+      "roomName": "A-504",
+      "subject": "Museum Studies",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs401",
+      "dayOfWeek": 4,
+      "slotId": 4,
+      "roomName": "A-502",
+      "subject": "Artifacts",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs402",
+      "dayOfWeek": 4,
+      "slotId": 4,
+      "roomName": "B-110",
+      "subject": "Excavation Tech",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs403",
+      "dayOfWeek": 4,
+      "slotId": 5,
+      "roomName": "A-509",
+      "subject": "Artifacts",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs404",
+      "dayOfWeek": 4,
+      "slotId": 5,
+      "roomName": "A-506",
+      "subject": "Museum Studies",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs405",
+      "dayOfWeek": 4,
+      "slotId": 6,
+      "roomName": "A-504",
+      "subject": "Heritage Conservation",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs406",
+      "dayOfWeek": 4,
+      "slotId": 6,
+      "roomName": "B-109",
+      "subject": "Egyptology",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs407",
+      "dayOfWeek": 4,
+      "slotId": 6,
+      "roomName": "A-501",
+      "subject": "Excavation Tech",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs408",
+      "dayOfWeek": 6,
+      "slotId": 1,
+      "roomName": "A-509",
+      "subject": "Heritage Conservation",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs409",
+      "dayOfWeek": 6,
+      "slotId": 1,
+      "roomName": "A-510",
+      "subject": "Egyptology",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs410",
+      "dayOfWeek": 6,
+      "slotId": 1,
+      "roomName": "A-508",
+      "subject": "Artifacts",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs411",
+      "dayOfWeek": 6,
+      "slotId": 2,
+      "roomName": "A-506",
+      "subject": "Heritage Conservation",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs412",
+      "dayOfWeek": 6,
+      "slotId": 2,
+      "roomName": "A-504",
+      "subject": "Excavation Tech",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs413",
+      "dayOfWeek": 6,
+      "slotId": 3,
+      "roomName": "A-504",
+      "subject": "Museum Studies",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs414",
+      "dayOfWeek": 6,
+      "slotId": 3,
+      "roomName": "B-109",
+      "subject": "Museum Studies",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs415",
+      "dayOfWeek": 6,
+      "slotId": 4,
+      "roomName": "A-509",
+      "subject": "Excavation Tech",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs416",
+      "dayOfWeek": 6,
+      "slotId": 4,
+      "roomName": "A-508",
+      "subject": "Artifacts",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs417",
+      "dayOfWeek": 6,
+      "slotId": 5,
+      "roomName": "A-510",
+      "subject": "Artifacts",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs418",
+      "dayOfWeek": 6,
+      "slotId": 5,
+      "roomName": "A-506",
+      "subject": "Excavation Tech",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs419",
+      "dayOfWeek": 6,
+      "slotId": 6,
+      "roomName": "B-110",
+      "subject": "Museum Studies",
+      "college": "College of Archaeology and Cultural Heritage"
+    },
+    {
+      "id": "fs420",
+      "dayOfWeek": 6,
+      "slotId": 6,
+      "roomName": "A-501",
+      "subject": "Ancient History",
+      "college": "College of Archaeology and Cultural Heritage"
+    }
+  ],
+  "A_ROOMS": [
+    "A-101",
+    "A-102",
+    "A-103",
+    "A-104",
+    "A-105",
+    "A-106",
+    "A-107",
+    "A-108",
+    "A-109",
+    "A-110",
+    "A-201",
+    "A-202",
+    "A-203",
+    "A-204",
+    "A-205",
+    "A-206",
+    "A-207",
+    "A-208",
+    "A-209",
+    "A-210",
+    "A-301",
+    "A-302",
+    "A-303",
+    "A-304",
+    "A-305",
+    "A-306",
+    "A-307",
+    "A-308",
+    "A-309",
+    "A-310",
+    "A-401",
+    "A-402",
+    "A-403",
+    "A-404",
+    "A-405",
+    "A-406",
+    "A-407",
+    "A-408",
+    "A-409",
+    "A-410",
+    "A-501",
+    "A-502",
+    "A-503",
+    "A-504",
+    "A-505",
+    "A-506",
+    "A-507",
+    "A-508",
+    "A-509",
+    "A-510"
+  ],
+  "B_LABS": [
+    "B-101",
+    "B-102",
+    "B-103",
+    "B-104",
+    "B-105",
+    "B-106",
+    "B-107",
+    "B-108",
+    "B-109",
+    "B-110"
+  ]
+};

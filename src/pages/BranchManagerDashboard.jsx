@@ -56,16 +56,7 @@ const BranchManagerDashboard = () => {
         <p style={{ color: '#666' }}>Ultimate authority over multipurpose rooms and forced booking modifications.</p>
       </div>
 
-      {notifications && notifications.length > 0 && (
-        <div style={{ backgroundColor: '#fff3cd', borderLeft: '4px solid #ffecb5', padding: '1rem', marginBottom: '2rem', borderRadius: '4px' }}>
-          <h4 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', margin: '0 0 0.5rem 0', color: '#856404' }}>
-            Notifications
-          </h4>
-          <ul style={{ margin: 0, paddingLeft: '1.5rem', color: '#856404' }}>
-            {notifications.map(n => <li key={n.id}>[{n.date}] {n.message}</li>)}
-          </ul>
-        </div>
-      )}
+
 
       <div style={styles.grid}>
         <div>

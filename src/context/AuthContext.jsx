@@ -34,7 +34,7 @@ export const AuthProvider = ({ children }) => {
     }
     setUsers(prev => ({
       ...prev,
-      [id]: { id, name, role: 'employee', password, status: 'pending' } 
+      [id]: { id, name, role: 'employee', password, status: 'pending' }
     }));
     return { success: true };
   };
